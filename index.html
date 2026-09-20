@@ -67,7 +67,8 @@ display:grid;place-items:center;text-align:center;color:var(--mut);font-size:.9r
 .rise{opacity:0;transform:translateY(18px);animation:rise .8s var(--ease) forwards;animation-delay:var(--d,0s)}
 @keyframes rise{to{opacity:1;transform:none}}
 /* about */
-.ag{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.ag{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+#about .sh{margin-bottom:28px}
 .ag p{margin-bottom:18px;max-width:60ch}
 /* skills */
 .sg{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px}
@@ -114,7 +115,7 @@ details[open] .det{animation:rise .5s var(--ease)}
 /* resume + contact */
 .rs{display:flex;justify-content:space-between;align-items:center;gap:32px;flex-wrap:wrap;padding:48px;border:1px solid var(--line);border-radius:26px;background:var(--bg2);box-shadow:var(--sh)}
 .rs h2{font-size:2rem;margin-bottom:8px}.rs p{max-width:50ch}
-.cg{display:grid;grid-template-columns:1fr 1.2fr;gap:80px}
+.cg{max-width:680px}
 .cl{list-style:none;padding:0;margin-top:28px}
 .cl li{padding:16px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 .cl a:hover{text-decoration:underline}
@@ -191,31 +192,11 @@ const DATA = {
     image: ""
   },
   skills: [
-    {
-      title: "Programming",
-      desc: "Programming languages and development experience used across engineering coursework and projects.",
-      items: ["C", "C++", "Python", "MATLAB"]
-    },
-    {
-      title: "Hardware / Electronics",
-      desc: "Hands-on experience designing, building, measuring, and debugging electronic systems.",
-      items: ["Circuit Design", "Oscilloscopes", "Soldering", "Breadboarding"]
-    },
-    {
-      title: "Embedded Systems",
-      desc: "Experience with microprocessors, Arduino-based systems, and low-level embedded programming.",
-      items: ["Microprocessors", "Arduino", "AVR Assembly", "Embedded Debugging"]
-    },
-    {
-      title: "Software / Tools",
-      desc: "Engineering software used for circuit design, digital logic, PCB work, and development.",
-      items: ["KiCad", "LTSpice", "Intel Quartus", "Logisim", "Microchip Studio", "SolidWorks"]
-    },
-    {
-      title: "Engineering",
-      desc: "Technical skills developed through engineering projects, laboratories, and coursework.",
-      items: ["System Debugging", "Unit Testing", "Uncertainty Analysis", "Technical Documentation"]
-    }
+    { title: "Programming", desc: "Programming languages and development experience used across engineering coursework and projects.", items: ["C", "C++", "Python", "MATLAB"] },
+    { title: "Hardware / Electronics", desc: "Hands-on experience designing, building, measuring, and debugging electronic systems.", items: ["Circuit Design", "Oscilloscopes", "Soldering", "Breadboarding"] },
+    { title: "Embedded Systems", desc: "Experience with microprocessors, Arduino-based systems, and low-level embedded programming.", items: ["Microprocessors", "Arduino", "AVR Assembly", "Embedded Debugging"] },
+    { title: "Software / Tools", desc: "Engineering software used for circuit design, digital logic, PCB work, and development.", items: ["KiCad", "LTSpice", "Intel Quartus", "Logisim", "Microchip Studio", "SolidWorks"] },
+    { title: "Engineering", desc: "Technical skills developed through engineering projects, laboratories, and coursework.", items: ["Unit Testing", "Uncertainty Analysis", "Technical Documentation"] }
   ],
   projects: [
     {
@@ -223,8 +204,7 @@ const DATA = {
       title: "Arduino-Based Robotic Crane",
       type: "Embedded Systems / Robotics",
       short: "Arduino-controlled robotic crane designed to transfer cargo between multiple levels using vertical and rotational movement.",
-      image: "",
-      image2: "",
+      image: "", image2: "",
       imageLabel: "Robotic Crane — Project Image",
       image2Label: "Robotic Crane — Testing / Hardware Image",
       tags: ["Arduino", "Embedded Systems", "Electronics", "Robotics"],
@@ -243,8 +223,7 @@ const DATA = {
       title: "Arduino Reaction Time Tester",
       type: "Embedded Systems / Arduino",
       short: "Arduino-based reaction-time project demonstrating embedded programming, hardware interfacing, and timing measurement.",
-      image: "",
-      image2: "",
+      image: "", image2: "",
       imageLabel: "Reaction Time Tester — Project Image",
       image2Label: "Reaction Time Tester — Hardware Image",
       tags: ["Arduino", "C/C++", "Embedded Systems", "Timing"],
@@ -263,12 +242,11 @@ const DATA = {
       title: "AVR Microprocessor Project",
       type: "Microprocessors",
       short: "Low-level AVR programming and microcontroller work involving registers, GPIO, timing, assembly, and C.",
-      image: "",
-      image2: "",
+      image: "", image2: "",
       imageLabel: "AVR Microprocessor — Project Image",
       image2Label: "Assembly / Hardware Image",
       tags: ["AVR", "Assembly", "C", "Microprocessors", "Arduino Nano"],
-      links: [["View Project","#"],["GitHub","#"]],
+      links: [["View Project","#"]],
       details: {
         "Overview": "Microprocessor coursework and hands-on work using the ATmega328P/Arduino Nano platform.",
         "Objective": "Understand and implement low-level microcontroller functionality using both C and AVR assembly.",
@@ -283,12 +261,11 @@ const DATA = {
       title: "Engineering Circuit Design & Analysis",
       type: "Electrical Circuits",
       short: "Hands-on circuit laboratory work involving Kirchhoff's laws, Thévenin/superposition, op-amps, dependent sources, and AC phasor analysis.",
-      image: "",
-      image2: "",
+      image: "", image2: "",
       imageLabel: "Circuit Laboratory — Project Image",
       image2Label: "Circuit Measurement — Secondary Image",
       tags: ["Circuit Analysis", "Oscilloscope", "LTSpice", "AC/Phasors", "Op-Amps"],
-      links: [["View Project","#"],["GitHub","#"]],
+      links: [["View Project","#"]],
       details: {
         "Overview": "A collection of electrical engineering laboratory projects focused on analyzing and experimentally validating circuit behavior.",
         "Objective": "Apply circuit-analysis theory to physical circuits and compare calculated, simulated, and measured results.",
@@ -303,12 +280,11 @@ const DATA = {
       title: "Digital Logic & FPGA Exploration",
       type: "Digital Systems",
       short: "Digital logic design experience using Boolean logic, Logisim, Quartus, and exploration of FPGA/SystemVerilog-based hardware design.",
-      image: "",
-      image2: "",
+      image: "", image2: "",
       imageLabel: "Digital Logic / FPGA — Project Image",
       image2Label: "FPGA Design — Secondary Image",
       tags: ["SystemVerilog", "FPGA", "Quartus", "Logisim", "Boolean Logic"],
-      links: [["View Project","#"],["GitHub","#"]],
+      links: [["View Project","#"]],
       details: {
         "Overview": "Digital systems work involving Boolean logic, digital circuit design, simulation, and FPGA-oriented development.",
         "Objective": "Develop an understanding of digital hardware design and how logical systems can be implemented in programmable hardware.",
@@ -333,6 +309,9 @@ const DATA = {
       "My Contribution": "[YOUR SPECIFIC ROLE, ESPECIALLY IF A TEAM PROJECT]"
     }
   },
+  /* Leave empty until you add jobs. Format:
+     { title:"", company:"", dates:"", desc:"", responsibilities:["",""], accomplishments:["",""] } */
+  experience: [],
   education: [
     {
       institution: "Dalhousie University",
@@ -351,8 +330,8 @@ const DATA = {
     title: "Contact",
     intro: "Interested in engineering, embedded systems, hardware, or potential opportunities? Feel free to get in touch.",
     links: [
-      ["Email","Zachary.Juchymenko@dal.ca","#"],
-      ["LinkedIn","https://linkedin.com","#"],
+      ["Email", "Zachary.Juchymenko@dal.ca", "mailto:Zachary.Juchymenko@dal.ca"],
+      ["LinkedIn", "https://linkedin.com", "https://linkedin.com"]
     ]
   }
 };
@@ -386,6 +365,7 @@ function project(p) {
   </article>`;
 }
 
+const hasExp = (D.experience || []).length > 0;
 $("#navlinks").innerHTML = D.nav.map(([l, id]) => `<li><a href="#${id}">${l}</a></li>`).join("");
 $("#logo").textContent = D.name;
 document.title = `${D.name} | Portfolio`;
@@ -414,12 +394,12 @@ $("#app").innerHTML = `
 
 <section id="projects"><div class="wrap">${sh("Projects")}${D.projects.map(project).join("")}</div></section>
 
-<section id="experience"><div class="wrap">${sh("Experience")}
-  <div class="tl">${D.experience.map(e => `<div class="te rv">
+<section id="experience"><div class="wrap">${sh(hasExp ? "Experience" : "Education")}
+  <div class="tl"${hasExp ? "" : " hidden"}>${(D.experience || []).map(e => `<div class="te rv">
     <h3>${e.title}</h3><p class="co">${e.company}</p><p class="small">${e.dates}</p><p class="muted" style="margin-top:10px;max-width:70ch">${e.desc}</p>
     <div class="cols"><div><h4>Responsibilities</h4>${list(e.responsibilities)}</div><div><h4>Accomplishments</h4>${list(e.accomplishments)}</div></div></div>`).join("")}</div>
-  <h3 class="sub2 rv" id="education">Education</h3>
-  <div class="eg">${D.education.map(e => `<div class="rv"><h3>${e.institution}</h3><p>${e.degree}</p><p class="small">${e.dates}</p><p class="muted">${e.gpa}</p>${tags(e.courses)}<p class="small">${e.extra}</p></div>`).join("")}</div>
+  <h3 class="sub2 rv" id="education"${hasExp ? "" : " hidden"}>Education</h3>
+  <div class="eg">${D.education.map(e => `<div class="rv"><h3>${e.institution}</h3><p>${e.degree}</p>${e.dates ? `<p class="small">${e.dates}</p>` : ""}${e.gpa ? `<p class="muted">${e.gpa}</p>` : ""}${tags(e.courses)}<p class="small">${e.extra}</p></div>`).join("")}</div>
 </div></section>
 
 <section id="resume" style="padding-top:0"><div class="wrap"><div class="rs rv">
@@ -431,17 +411,10 @@ $("#app").innerHTML = `
   <div class="cg">
     <div class="rv"><p class="muted" style="max-width:44ch">${D.contact.intro}</p>
       <ul class="cl">${D.contact.links.map(([l, t, h]) => `<li><span class="muted">${l}</span><a href="${h}">${t}</a></li>`).join("")}</ul></div>
-    <form class="rv" id="form">
-      <label>Name<input name="name" required autocomplete="name"></label>
-      <label>Email<input name="email" type="email" required autocomplete="email"></label>
-      <label>Message<textarea name="message" required></textarea></label>
-      <button class="btn p" type="submit">Send message</button>
-      <p class="small" id="fmsg" role="status"></p>
-    </form>
   </div>
 </div></section>`;
 
-$("#foot").innerHTML = `<span class="small">&copy; ${new Date().getFullYear()} ${D.name}. [COPYRIGHT TEXT]</span>
+$("#foot").innerHTML = `<span class="small">&copy; ${new Date().getFullYear()} ${D.name}. All rights reserved.</span>
 <div class="fl">${D.contact.links.map(([l, , h]) => `<a class="small" href="${h}">${l}</a>`).join("")}</div>`;
 
 /* ============================ BEHAVIOUR ============================ */
@@ -460,7 +433,6 @@ const secIO = new IntersectionObserver(es => es.forEach(e => {
 }), { rootMargin: "-45% 0px -50% 0px" });
 D.nav.forEach(([, id]) => { const s = document.getElementById(id); s && secIO.observe(s); });
 
-$("#form").addEventListener("submit", e => { e.preventDefault(); $("#fmsg").textContent = "Form is a placeholder. Connect it to a form service to send messages."; });
 </script>
 </body>
 </html>
