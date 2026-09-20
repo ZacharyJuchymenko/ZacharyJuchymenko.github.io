@@ -179,7 +179,7 @@ const DATA = {
   name: "Zachary Juchymenko",
   role: "Electrical Engineering | Embedded Systems & Hardware",
   intro: "Electrical Engineering student with hands-on experience in embedded systems, circuit design, microprocessors, and engineering software. Interested in building practical hardware and software systems and solving technical problems through design, testing, and iteration.",
-  heroImage: "",
+  heroImage: "heroimage.HEIC",
   nav: [["Home","home"],["About","about"],["Skills","skills"],["Projects","projects"],["Experience","experience"],["Contact","contact"]],
   about: {
     title: "About",
@@ -387,7 +387,7 @@ $("#app").innerHTML = `
     <p class="in rise" style="--d:.24s">${D.intro}</p>
     <div class="btns rise" style="--d:.36s"><a class="btn p" href="#projects">View Projects</a><a class="btn s" href="#contact">Contact Me</a></div>
   </div>
-  <div class="rise" style="--d:.3s">${ph(D.heroImage, "[HERO IMAGE]", "4/5")}</div>
+  <div class="rise" style="--d:.3s">${ph(D.heroImage, "heroimage.HEIC", "4/5")}</div>
 </div></section>
 
 <section id="about"><div class="wrap">${sh(D.about.title)}
