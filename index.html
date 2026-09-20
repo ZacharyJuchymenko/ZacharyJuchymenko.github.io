@@ -52,7 +52,9 @@ nav.open .burger i:nth-child(3){transform:translateY(-5px) rotate(-45deg)}
 radial-gradient(var(--line) 1.4px,transparent 1.6px) 0 0/22px 22px,var(--bg);
 display:grid;place-items:center;text-align:center;color:var(--mut);font-size:.9rem;transition:border-color .3s,transform .3s var(--ease)}
 .ph span{background:var(--bg2);padding:7px 16px;border-radius:100px;box-shadow:var(--sh)}
-.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease)}
+.ph img,.ph video,.ph iframe{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border:0}
+.ph video{object-fit:contain;background:#000}
+.ph img{transition:transform .6s var(--ease)}
 .ph:hover{border-color:var(--ac)}.ph:hover img{transform:scale(1.04)}
 /* tags */
 .tags{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0}
@@ -208,7 +210,7 @@ const DATA = {
       imageLabel: "Robotic Crane — Project Image",
       image2Label: "Robotic Crane — Testing / Hardware Image",
       tags: ["Arduino", "Embedded Systems", "Electronics", "Robotics"],
-      links: [["View Project","#"],],
+      links: [["View Project","#"]],
       details: {
         "Overview": "A team engineering project involving the design and construction of an Arduino-based robotic crane capable of moving cargo between multiple levels.",
         "Objective": "Design a reliable robotic arm capable of completing the required cargo-transfer task while meeting positional accuracy and reliability requirements.",
@@ -331,7 +333,7 @@ const DATA = {
     intro: "Interested in engineering, embedded systems, hardware, or potential opportunities? Feel free to get in touch.",
     links: [
       ["Email", "Zachary.Juchymenko@dal.ca", "mailto:Zachary.Juchymenko@dal.ca"],
-      ["LinkedIn", "https://linkedin.com", "linkedin.com/in/zach-juchymenko-022253325"]
+      ["LinkedIn", "linkedin.com/in/zach-juchymenko-022253325", "https://www.linkedin.com/in/zach-juchymenko-022253325"]
     ]
   }
 };
@@ -341,7 +343,14 @@ const D = DATA, $ = s => document.querySelector(s);
 const list = a => `<ul>${a.map(x => `<li>${x}</li>`).join("")}</ul>`;
 const tags = a => `<ul class="tags">${a.map(t => `<li class="tag">${t}</li>`).join("")}</ul>`;
 const sh = t => `<div class="sh rv"><h2>${t}</h2></div>`;
-const ph = (src, label, ratio) => `<div class="ph" style="--r:${ratio}">${src ? `<img src="${src}" alt="${label}" loading="lazy">` : `<span>${label}</span>`}</div>`;
+const ph = (src, label, ratio) => {
+  let m = "";
+  if (!src) m = `<span>${label}</span>`;
+  else if (/youtu\.?be/.test(src)) m = `<iframe src="https://www.youtube.com/embed/${(src.match(/(?:v=|youtu\.be\/|embed\/)([\w-]{11})/) || [])[1]}" title="${label}" allowfullscreen loading="lazy"></iframe>`;
+  else if (/\.(mp4|webm|mov)(\?|$)/i.test(src)) m = `<video src="${src}" controls playsinline preload="metadata"></video>`;
+  else m = `<img src="${src}" alt="${label}" loading="lazy">`;
+  return `<div class="ph" style="--r:${ratio}">${m}</div>`;
+};
 
 function project(p) {
   p = { ...D.projectDefaults, ...p };
