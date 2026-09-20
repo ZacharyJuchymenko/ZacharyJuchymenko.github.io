@@ -179,7 +179,7 @@ const DATA = {
   name: "Zachary Juchymenko",
   role: "Electrical Engineering | Embedded Systems & Hardware",
   intro: "Electrical Engineering student with hands-on experience in embedded systems, circuit design, microprocessors, and engineering software. Interested in building practical hardware and software systems and solving technical problems through design, testing, and iteration.",
-  heroImage: "heroimage.HEIC",
+  heroImage: "images/hero.jpg",
   nav: [["Home","home"],["About","about"],["Skills","skills"],["Projects","projects"],["Experience","experience"],["Contact","contact"]],
   about: {
     title: "About",
@@ -225,7 +225,7 @@ const DATA = {
       title: "Arduino Reaction Time Tester",
       type: "Embedded Systems / Arduino",
       short: "Arduino-based reaction-time project demonstrating embedded programming, hardware interfacing, and timing measurement.",
-      image: "", image2: "",
+      image: "", image2: "videos/reaction-tester.mp4",
       imageLabel: "Reaction Time Tester — Project Image",
       image2Label: "Reaction Time Tester — Hardware Image",
       tags: ["Arduino", "C/C++", "Embedded Systems", "Timing"],
@@ -263,7 +263,7 @@ const DATA = {
       title: "Engineering Circuit Design & Analysis",
       type: "Electrical Circuits",
       short: "Hands-on circuit laboratory work involving Kirchhoff's laws, Thévenin/superposition, op-amps, dependent sources, and AC phasor analysis.",
-      image: "", image2: "",
+      image: "images/powerlab.jpg", image2: "",
       imageLabel: "Circuit Laboratory — Project Image",
       image2Label: "Circuit Measurement — Secondary Image",
       tags: ["Circuit Analysis", "Oscilloscope", "LTSpice", "AC/Phasors", "Op-Amps"],
@@ -333,7 +333,7 @@ const DATA = {
     intro: "Interested in engineering, embedded systems, hardware, or potential opportunities? Feel free to get in touch.",
     links: [
       ["Email", "Zachary.Juchymenko@dal.ca", "mailto:Zachary.Juchymenko@dal.ca"],
-      ["LinkedIn", "linkedin.com/in/zach-juchymenko-022253325", "Linkedin.com/in/zach-juchymenko-022253325"]
+      ["LinkedIn", "linkedin.com/in/zach-juchymenko-022253325", "https://www.linkedin.com/in/zach-juchymenko-022253325"]
     ]
   }
 };
@@ -347,7 +347,7 @@ const ph = (src, label, ratio) => {
   let m = "";
   if (!src) m = `<span>${label}</span>`;
   else if (/youtu\.?be/.test(src)) m = `<iframe src="https://www.youtube.com/embed/${(src.match(/(?:v=|youtu\.be\/|embed\/)([\w-]{11})/) || [])[1]}" title="${label}" allowfullscreen loading="lazy"></iframe>`;
-  else if (/\.(mp4|webm|mov)(\?|$)/i.test(src)) m = `<video src="${src}" controls playsinline preload="metadata"></video>`;
+  else if (/\.(mp4|webm|mov)(\?|$)/i.test(src)) m = `<video src="${src}#t=0.1" controls playsinline preload="metadata"></video>`;
   else m = `<img src="${src}" alt="${label}" loading="lazy">`;
   return `<div class="ph" style="--r:${ratio}">${m}</div>`;
 };
@@ -387,7 +387,7 @@ $("#app").innerHTML = `
     <p class="in rise" style="--d:.24s">${D.intro}</p>
     <div class="btns rise" style="--d:.36s"><a class="btn p" href="#projects">View Projects</a><a class="btn s" href="#contact">Contact Me</a></div>
   </div>
-  <div class="rise" style="--d:.3s">${ph(D.heroImage, "heroimage.HEIC", "4/5")}</div>
+  <div class="rise" style="--d:.3s">${ph(D.heroImage, "Zachary Juchymenko", "4/5")}</div>
 </div></section>
 
 <section id="about"><div class="wrap">${sh(D.about.title)}
