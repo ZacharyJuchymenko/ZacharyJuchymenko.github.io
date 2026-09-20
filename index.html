@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zachary Juchymenko | Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+<style>
+/* ===== THEME: change colours/fonts here ===== */
+:root{--bg:#f6f8fa;--bg2:#ffffff;--line:#dbe2e9;--tx:#12181f;--mut:#576372;--ac:#06b6d4;--act:#0e7490;--acd:rgba(6,182,212,.14);--sh:0 10px 34px rgba(18,24,31,.06);
+--hf:'Inter',system-ui,sans-serif;--bf:'Inter',system-ui,sans-serif;--w:1160px;--ease:cubic-bezier(.2,.7,.2,1)}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{background:var(--bg);color:var(--tx);font:400 1.0625rem/1.7 var(--bf);-webkit-font-smoothing:antialiased}
+a{color:var(--act);text-decoration:none}
+:focus-visible{outline:2px solid var(--ac);outline-offset:3px}
+h1,h2,h3,h4{font-family:var(--hf);font-weight:600;line-height:1.15;letter-spacing:-.025em}
+ul{padding-left:1.1rem}li{margin:.25rem 0}
+.wrap{max-width:var(--w);margin:0 auto;padding:0 28px}
+section{padding:120px 0}
+.muted{color:var(--mut)}.small{font-size:.9rem;color:var(--mut)}
+/* section heading with trace line */
+.sh{display:flex;align-items:center;gap:18px;margin-bottom:56px}
+.sh h2{font-size:clamp(2rem,4vw,3rem)}
+.sh:after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--line),transparent)}
+.sh:before{content:"";order:1;width:8px;height:8px;border-radius:50%;background:var(--ac);box-shadow:0 0 0 4px var(--acd)}
+.sh h2{order:0}.sh:after{order:2}
+/* nav */
+nav{position:fixed;inset:0 0 auto;z-index:50;transition:background .3s,border-color .3s,backdrop-filter .3s;border-bottom:1px solid transparent}
+nav.scrolled,nav.open{background:rgba(246,248,250,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-color:var(--line)}
+.nb{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{font:700 1.15rem var(--hf);color:var(--tx)}
+.nl{display:flex;gap:6px;list-style:none;padding:0}
+.nl a{display:block;padding:8px 14px;color:var(--mut);font-size:.95rem;position:relative;transition:color .2s}
+.nl a:after{content:"";position:absolute;left:14px;right:14px;bottom:2px;height:2px;background:var(--ac);transform:scaleX(0);transition:transform .25s var(--ease)}
+.nl a:hover,.nl a.on{color:var(--tx)}.nl a.on:after,.nl a:hover:after{transform:scaleX(1)}
+.burger{display:none;background:none;border:0;width:44px;height:44px;cursor:pointer;position:relative}
+.burger i{position:absolute;left:11px;right:11px;height:2px;background:var(--tx);transition:transform .3s,opacity .2s}
+.burger i:nth-child(1){top:16px}.burger i:nth-child(2){top:21px}.burger i:nth-child(3){top:26px}
+nav.open .burger i:nth-child(1){transform:translateY(5px) rotate(45deg)}
+nav.open .burger i:nth-child(2){opacity:0}
+nav.open .burger i:nth-child(3){transform:translateY(-5px) rotate(-45deg)}
+/* buttons */
+.btn{display:inline-block;padding:13px 28px;border:1px solid var(--ac);border-radius:100px;font:500 .98rem var(--bf);cursor:pointer;transition:transform .2s var(--ease),background .2s,color .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn.p{background:var(--ac);color:#04262e}.btn.p:hover{box-shadow:0 6px 22px rgba(6,182,212,.3)}
+.btn.s{background:transparent;color:var(--act)}.btn.s:hover{background:var(--acd)}
+.btns{display:flex;flex-wrap:wrap;gap:14px}
+/* placeholder image */
+.ph{position:relative;aspect-ratio:var(--r,16/10);overflow:hidden;border:1px solid var(--line);border-radius:20px;background:
+radial-gradient(var(--line) 1.4px,transparent 1.6px) 0 0/22px 22px,var(--bg);
+display:grid;place-items:center;text-align:center;color:var(--mut);font-size:.9rem;transition:border-color .3s,transform .3s var(--ease)}
+.ph span{background:var(--bg2);padding:7px 16px;border-radius:100px;box-shadow:var(--sh)}
+.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease)}
+.ph:hover{border-color:var(--ac)}.ph:hover img{transform:scale(1.04)}
+/* tags */
+.tags{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0}
+.tag{padding:5px 13px;border:1px solid var(--line);border-radius:100px;font-size:.88rem;color:var(--tx);background:var(--bg2);transition:transform .2s var(--ease),border-color .2s,color .2s}
+.tag:hover{transform:translateY(-2px);border-color:var(--ac);color:var(--act)}
+/* hero */
+#home{min-height:100vh;display:flex;align-items:center;padding:120px 0 80px}
+.hg{display:grid;grid-template-columns:1.15fr .85fr;gap:72px;align-items:center}
+.hero h1{font-size:clamp(3rem,7.5vw,5.5rem);font-weight:600;margin-bottom:18px}
+.hero .sub{font:500 clamp(1.15rem,2vw,1.5rem) var(--hf);color:var(--act);margin-bottom:22px}
+.hero p.in{max-width:52ch;color:var(--mut);margin-bottom:38px}
+.rise{opacity:0;transform:translateY(18px);animation:rise .8s var(--ease) forwards;animation-delay:var(--d,0s)}
+@keyframes rise{to{opacity:1;transform:none}}
+/* about */
+.ag{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+#about .sh{margin-bottom:28px}
+.ag p{margin-bottom:18px;max-width:60ch}
+/* skills */
+.sg{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px}
+.sc{padding:30px;border:1px solid var(--line);border-radius:22px;background:var(--bg2);box-shadow:var(--sh)}
+.sc h3{font-size:1.3rem;margin-bottom:8px}.sc p{margin-bottom:18px}
+/* projects */
+.proj{padding:72px 0;border-top:1px solid var(--line)}.proj:first-of-type{border-top:0;padding-top:0}
+.pg{display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:center}
+.proj.right .pmedia{order:2}
+.pmedia{display:grid;gap:16px}
+.pmedia .ph:first-child:hover{transform:translateY(-4px)}
+.proj.full .pg{grid-template-columns:1fr}
+.proj.full .pmedia{grid-template-columns:2fr 1fr;align-items:end}
+.proj.full .pinfo{display:grid;grid-template-columns:1fr 1fr;gap:16px 64px}
+.proj.full .pinfo>*{margin:0}.proj.full .ptitle{grid-column:1/-1}
+.type{display:inline-block;font-size:.85rem;color:var(--act);border-left:2px solid var(--ac);padding-left:10px;margin-bottom:14px}
+.ptitle{font-size:clamp(1.8rem,3.2vw,2.5rem);margin-bottom:14px}
+.pinfo>.short{color:var(--mut);margin-bottom:22px}.pinfo>.tags{margin-bottom:26px}
+.det{display:grid;grid-template-columns:repeat(3,1fr);gap:40px 48px;margin-top:56px}
+.det h4{font-size:1.05rem;color:var(--act);padding-top:14px;border-top:1px solid var(--line);margin-bottom:10px}
+.det p,.det li{color:var(--mut);font-size:.98rem}
+.proj.compact{padding:26px;margin-bottom:24px;border:1px solid var(--line);border-radius:26px;background:var(--bg2);box-shadow:var(--sh);transition:opacity .7s var(--ease),transform .5s var(--ease),border-color .3s}
+.proj.compact:hover{transform:translateY(-3px);border-color:var(--ac)}
+.cgrid{display:grid;grid-template-columns:340px 1fr;gap:36px;align-items:center}
+.compact .ptitle{font-size:1.7rem}.compact .pinfo>.short{margin-bottom:16px}.compact .pinfo>.tags{margin-bottom:20px}
+details summary{cursor:pointer;color:var(--act);font-weight:500;margin-top:22px;list-style:none;display:inline-flex;gap:8px;align-items:center}
+details summary::-webkit-details-marker{display:none}
+details summary:after{content:"+";font-size:1.4rem;line-height:1;transition:transform .25s}
+details[open] summary:after{transform:rotate(45deg)}
+details[open] .det{animation:rise .5s var(--ease)}
+.compact .det{margin-top:24px}
+/* timeline */
+.tl{position:relative;padding-left:36px;margin-bottom:96px}
+.tl:before{content:"";position:absolute;left:5px;top:8px;bottom:0;width:1px;background:var(--line)}
+.te{position:relative;padding-bottom:56px}
+.te:before{content:"";position:absolute;left:-36px;top:9px;width:11px;height:11px;border-radius:50%;background:var(--bg);border:2px solid var(--ac)}
+.te h3{font-size:1.5rem}.te .co{color:var(--act);margin:4px 0}
+.te .cols{display:grid;grid-template-columns:1fr 1fr;gap:12px 48px;margin-top:16px}
+.te h4{font-size:1rem;margin-bottom:4px}.te li{color:var(--mut)}
+.sub2{font-size:1.6rem;margin-bottom:36px}
+.eg{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:48px}
+.eg>div{border-left:2px solid var(--ac);padding-left:24px}
+.eg h3{font-size:1.4rem}.eg .tags{margin:14px 0}
+/* resume + contact */
+.rs{display:flex;justify-content:space-between;align-items:center;gap:32px;flex-wrap:wrap;padding:48px;border:1px solid var(--line);border-radius:26px;background:var(--bg2);box-shadow:var(--sh)}
+.rs h2{font-size:2rem;margin-bottom:8px}.rs p{max-width:50ch}
+.cg{max-width:680px}
+.cl{list-style:none;padding:0;margin-top:28px}
+.cl li{padding:16px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.cl a:hover{text-decoration:underline}
+form{display:grid;gap:18px}
+label{display:grid;gap:6px;font-size:.92rem;color:var(--mut)}
+input,textarea{font:inherit;color:var(--tx);background:var(--bg2);border:1px solid var(--line);border-radius:14px;padding:13px 16px;transition:border-color .2s}
+input:focus,textarea:focus{outline:none;border-color:var(--ac)}
+textarea{min-height:150px;resize:vertical}
+form .btn{justify-self:start}
+footer{border-top:1px solid var(--line);padding:36px 0}
+.fb{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+.fb .fl{display:flex;gap:22px}
+/* reveal */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.rv.in{opacity:1;transform:none}
+/* responsive */
+@media(max-width:960px){
+section{padding:88px 0}
+.hg,.ag,.pg,.cg{grid-template-columns:1fr;gap:44px}
+.proj.right .pmedia{order:0}
+.det{grid-template-columns:1fr 1fr}
+.proj.full .pinfo{grid-template-columns:1fr}
+.hero .ph{max-width:460px}
+.cgrid{grid-template-columns:1fr;gap:24px}
+}
+@media(max-width:720px){
+.wrap{padding:0 20px}
+.burger{display:block}
+.nl{position:absolute;top:68px;left:0;right:0;flex-direction:column;gap:0;background:rgba(246,248,250,.97);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);max-height:0;overflow:hidden;visibility:hidden;transition:max-height .35s var(--ease),visibility .35s}
+nav.open .nl{max-height:420px;visibility:visible}
+.nl a{padding:16px 20px}.nl a:after{display:none}
+.det,.te .cols,.proj.full .pmedia{grid-template-columns:1fr}
+.det{gap:32px}.rs{padding:28px}
+.btn{flex:1 1 100%;text-align:center}
+.eg{grid-template-columns:1fr}
+.sg{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}.rise,.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<nav id="nav"><div class="wrap nb">
+  <a class="logo" href="#home" id="logo"></a>
+  <button class="burger" id="burger" aria-label="Toggle menu" aria-expanded="false"><i></i><i></i><i></i></button>
+  <ul class="nl" id="navlinks"></ul>
+</div></nav>
+<main id="app"></main>
+<footer><div class="wrap fb" id="foot"></div></footer>
+
+<script>
+/* =====================================================================
+   EDIT YOUR CONTENT HERE. Everything below the DATA object is layout code.
+   - Leave an image field as "" to show the placeholder box.
+   - Set it to a path/URL (e.g. "images/pcb.jpg") to show your image.
+   - Copy a whole { ... } block in `projects`, `experience`, etc. to add more.
+   - Project `layout`: "left" (image left), "right" (image right), "compact" (small horizontal card that expands to show details).
+   ===================================================================== */
+const DATA = {
+  name: "Zachary Juchymenko",
+  role: "Electrical Engineering | Embedded Systems & Hardware",
+  intro: "Electrical Engineering student with hands-on experience in embedded systems, circuit design, microprocessors, and engineering software. Interested in building practical hardware and software systems and solving technical problems through design, testing, and iteration.",
+  heroImage: "",
+  nav: [["Home","home"],["About","about"],["Skills","skills"],["Projects","projects"],["Experience","experience"],["Contact","contact"]],
+  about: {
+    title: "About",
+    paragraphs: [
+      "I am a third-year Electrical Engineering student at Dalhousie University with a strong interest in, embedded systems, and practical engineering design.",
+      "My coursework and projects have given me experience working across both hardware and software, from circuit analysis and microprocessors to Arduino-based systems, programming, debugging, and technical documentation."
+    ],
+    small: [
+      "Dalhousie University — Bachelor of Electrical Engineering, expected 2029 (CO-OP)",
+      "Interested in embedded systems, FPGA/SystemVerilog, computer hardware, and engineering applications of AI."
+    ],
+    image: ""
+  },
+  skills: [
+    { title: "Programming", desc: "Programming languages and development experience used across engineering coursework and projects.", items: ["C", "C++", "Python", "MATLAB"] },
+    { title: "Hardware / Electronics", desc: "Hands-on experience designing, building, measuring, and debugging electronic systems.", items: ["Circuit Design", "Oscilloscopes", "Soldering", "Breadboarding"] },
+    { title: "Embedded Systems", desc: "Experience with microprocessors, Arduino-based systems, and low-level embedded programming.", items: ["Microprocessors", "Arduino", "AVR Assembly", "Embedded Debugging"] },
+    { title: "Software / Tools", desc: "Engineering software used for circuit design, digital logic, PCB work, and development.", items: ["KiCad", "LTSpice", "Intel Quartus", "Logisim", "Microchip Studio", "SolidWorks"] },
+    { title: "Engineering", desc: "Technical skills developed through engineering projects, laboratories, and coursework.", items: ["Unit Testing", "Uncertainty Analysis", "Technical Documentation"] }
+  ],
+  projects: [
+    {
+      layout: "left",
+      title: "Arduino-Based Robotic Crane",
+      type: "Embedded Systems / Robotics",
+      short: "Arduino-controlled robotic crane designed to transfer cargo between multiple levels using vertical and rotational movement.",
+      image: "", image2: "",
+      imageLabel: "Robotic Crane — Project Image",
+      image2Label: "Robotic Crane — Testing / Hardware Image",
+      tags: ["Arduino", "Embedded Systems", "Electronics", "Robotics"],
+      links: [["View Project","#"],["GitHub","#"]],
+      details: {
+        "Overview": "A team engineering project involving the design and construction of an Arduino-based robotic crane capable of moving cargo between multiple levels.",
+        "Objective": "Design a reliable robotic arm capable of completing the required cargo-transfer task while meeting positional accuracy and reliability requirements.",
+        "Implementation": "Built and tested a vertical and rotational electric arm using Arduino-based control and iterative hardware testing.",
+        "Technical Details": ["Vertical and rotational arm movement", "Arduino-based control system"],
+        "Results": ["At least 95% task success rate", "Approximately ±5 mm positioning accuracy over 20+ test cycles"],
+        "My Contribution": "Team project completed as part of a four-person engineering team."
+      }
+    },
+    {
+      layout: "right",
+      title: "Arduino Reaction Time Tester",
+      type: "Embedded Systems / Arduino",
+      short: "Arduino-based reaction-time project demonstrating embedded programming, hardware interfacing, and timing measurement.",
+      image: "", image2: "",
+      imageLabel: "Reaction Time Tester — Project Image",
+      image2Label: "Reaction Time Tester — Hardware Image",
+      tags: ["Arduino", "C/C++", "Embedded Systems", "Timing"],
+      links: [["View Project","#"],["GitHub","#"]],
+      details: {
+        "Overview": "An Arduino-based embedded project designed to measure and display a user's reaction time.",
+        "Objective": "Create a responsive hardware system that detects user input, measures the elapsed time, and presents the result.",
+        "Implementation": "Developed the embedded control logic and interfaced the required input/output hardware with the Arduino platform.",
+        "Technical Details": ["Microcontroller-based timing", "Hardware input/output interfacing"],
+        "Results": ["Functional reaction-time measurement system"],
+        "My Contribution": "Designed and implemented the embedded project as a hands-on electronics project."
+      }
+    },
+    {
+      layout: "compact",
+      title: "AVR Microprocessor Project",
+      type: "Microprocessors",
+      short: "Low-level AVR programming and microcontroller work involving registers, GPIO, timing, assembly, and C.",
+      image: "", image2: "",
+      imageLabel: "AVR Microprocessor — Project Image",
+      image2Label: "Assembly / Hardware Image",
+      tags: ["AVR", "Assembly", "C", "Microprocessors", "Arduino Nano"],
+      links: [["View Project","#"]],
+      details: {
+        "Overview": "Microprocessor coursework and hands-on work using the ATmega328P/Arduino Nano platform.",
+        "Objective": "Understand and implement low-level microcontroller functionality using both C and AVR assembly.",
+        "Implementation": "Worked with GPIO registers, bit manipulation, timing loops, program flow, and embedded C/assembly code.",
+        "Technical Details": ["ATmega328P", "16 MHz Arduino Nano clock", "DDRB and PORTB GPIO registers"],
+        "Results": ["Compared C and assembly implementations and compiled program sizes", "Implemented GPIO control and timing routines"],
+        "My Contribution": "Implemented, tested, and debugged microprocessor programs while analyzing their low-level operation."
+      }
+    },
+    {
+      layout: "compact",
+      title: "Engineering Circuit Design & Analysis",
+      type: "Electrical Circuits",
+      short: "Hands-on circuit laboratory work involving Kirchhoff's laws, Thévenin/superposition, op-amps, dependent sources, and AC phasor analysis.",
+      image: "", image2: "",
+      imageLabel: "Circuit Laboratory — Project Image",
+      image2Label: "Circuit Measurement — Secondary Image",
+      tags: ["Circuit Analysis", "Oscilloscope", "LTSpice", "AC/Phasors", "Op-Amps"],
+      links: [["View Project","#"]],
+      details: {
+        "Overview": "A collection of electrical engineering laboratory projects focused on analyzing and experimentally validating circuit behavior.",
+        "Objective": "Apply circuit-analysis theory to physical circuits and compare calculated, simulated, and measured results.",
+        "Implementation": "Built circuits on breadboards, performed measurements, analyzed uncertainty, and documented experimental results.",
+        "Technical Details": ["Kirchhoff's Laws", "Thévenin and Superposition", "Op-amp circuits", "AC/phasor analysis"],
+        "Results": ["Measured resistor power and circuit quantities", "Compared theoretical and experimental values"],
+        "My Contribution": "Built circuits, performed measurements, analyzed discrepancies, and prepared technical laboratory documentation."
+      }
+    },
+    {
+      layout: "compact",
+      title: "Digital Logic & FPGA Exploration",
+      type: "Digital Systems",
+      short: "Digital logic design experience using Boolean logic, Logisim, Quartus, and exploration of FPGA/SystemVerilog-based hardware design.",
+      image: "", image2: "",
+      imageLabel: "Digital Logic / FPGA — Project Image",
+      image2Label: "FPGA Design — Secondary Image",
+      tags: ["SystemVerilog", "FPGA", "Quartus", "Logisim", "Boolean Logic"],
+      links: [["View Project","#"]],
+      details: {
+        "Overview": "Digital systems work involving Boolean logic, digital circuit design, simulation, and FPGA-oriented development.",
+        "Objective": "Develop an understanding of digital hardware design and how logical systems can be implemented in programmable hardware.",
+        "Implementation": "Used digital logic simulation and FPGA development tools to design and explore hardware-based systems.",
+        "Technical Details": ["Boolean logic", "Intel Quartus", "Logisim", "SystemVerilog / FPGA exploration"],
+        "Results": ["Developed practical experience translating logic concepts into digital hardware designs"],
+        "My Contribution": "Designed and tested digital logic systems and explored FPGA-based hardware development."
+      }
+    }
+  ],
+  projectDefaults: {
+    title: "[PROJECT TITLE]", type: "[PROJECT TYPE]", short: "[SHORT PROJECT DESCRIPTION]",
+    image: "", image2: "", imageLabel: "[PROJECT IMAGE]", image2Label: "[SECONDARY IMAGE (OPTIONAL)]",
+    tags: ["[TECHNOLOGY]","[TECHNOLOGY]","[TECHNOLOGY]"],
+    links: [["View Project","#"],["GitHub","#"]],
+    details: {
+      "Overview": "[SHORT INTRODUCTORY PARAGRAPH]",
+      "Objective": "[WHAT THE PROJECT WAS INTENDED TO ACCOMPLISH]",
+      "Implementation": "[HOW THE PROJECT WAS BUILT]",
+      "Technical Details": ["[SPECIFICATION OR DESIGN DECISION]","[SPECIFICATION OR DESIGN DECISION]"],
+      "Results": ["[MEASUREMENT OR OUTCOME]","[MEASUREMENT OR OUTCOME]"],
+      "My Contribution": "[YOUR SPECIFIC ROLE, ESPECIALLY IF A TEAM PROJECT]"
+    }
+  },
+  /* Leave empty until you add jobs. Format:
+     { title:"", company:"", dates:"", desc:"", responsibilities:["",""], accomplishments:["",""] } */
+  experience: [],
+  education: [
+    {
+      institution: "Dalhousie University",
+      degree: "Bachelor of Electrical Engineering",
+      courses: ["Microprocessors", "Signal Analysis", "Electric Circuits I and II", "Probability & Statistics"],
+      extra: "Electrical and Computer Engineering student with hands-on coursework in embedded systems, circuits, digital logic, and engineering analysis."
+    }
+  ],
+  resume: {
+    title: "Resume",
+    desc: "View or download my resume for a complete overview of my education, technical skills, projects, and experience.",
+    view: "#",
+    download: "#"
+  },
+  contact: {
+    title: "Contact",
+    intro: "Interested in engineering, embedded systems, hardware, or potential opportunities? Feel free to get in touch.",
+    links: [
+      ["Email", "Zachary.Juchymenko@dal.ca", "mailto:Zachary.Juchymenko@dal.ca"],
+      ["LinkedIn", "https://linkedin.com", "https://linkedin.com"]
+    ]
+  }
+};
+
+/* ============================ RENDER CODE ============================ */
+const D = DATA, $ = s => document.querySelector(s);
+const list = a => `<ul>${a.map(x => `<li>${x}</li>`).join("")}</ul>`;
+const tags = a => `<ul class="tags">${a.map(t => `<li class="tag">${t}</li>`).join("")}</ul>`;
+const sh = t => `<div class="sh rv"><h2>${t}</h2></div>`;
+const ph = (src, label, ratio) => `<div class="ph" style="--r:${ratio}">${src ? `<img src="${src}" alt="${label}" loading="lazy">` : `<span>${label}</span>`}</div>`;
+
+function project(p) {
+  p = { ...D.projectDefaults, ...p };
+  const det = { ...D.projectDefaults.details, ...(p.details || {}) };
+  const full = p.layout === "full";
+  const btns = `<div class="btns">${p.links.map(([l, h], i) => `<a class="btn ${i ? "s" : "p"}" href="${h}">${l}</a>`).join("")}</div>`;
+  const dh = `<div class="det">${Object.entries(det).map(([k, v]) => `<div><h4>${k}</h4>${Array.isArray(v) ? list(v) : `<p>${v}</p>`}</div>`).join("")}</div>`;
+  if (p.layout === "compact") return `<article class="proj compact rv"><div class="cgrid">${ph(p.image, p.imageLabel, "4/3")}<div class="pinfo"><span class="type">${p.type}</span><h3 class="ptitle">${p.title}</h3><p class="short">${p.short}</p>${tags(p.tags)}${btns}</div></div><details><summary>Project details</summary>${dh}</details></article>`;
+  return `<article class="proj ${p.layout} rv">
+    <div class="pg">
+      <div class="pmedia">${ph(p.image, p.imageLabel, full ? "21/9" : "4/3")}${ph(p.image2, p.image2Label, "16/9")}</div>
+      <div class="pinfo">
+        <div class="ptitle-wrap" style="display:contents"><span class="type">${p.type}</span></div>
+        <h3 class="ptitle">${p.title}</h3>
+        <p class="short">${p.short}</p>
+        ${tags(p.tags)}
+        ${btns}
+      </div>
+    </div>
+    ${dh}
+  </article>`;
+}
+
+const hasExp = (D.experience || []).length > 0;
+$("#navlinks").innerHTML = D.nav.map(([l, id]) => `<li><a href="#${id}">${l}</a></li>`).join("");
+$("#logo").textContent = D.name;
+document.title = `${D.name} | Portfolio`;
+
+$("#app").innerHTML = `
+<section id="home"><div class="wrap hero hg">
+  <div>
+    <h1 class="rise">${D.name}</h1>
+    <p class="sub rise" style="--d:.12s">${D.role}</p>
+    <p class="in rise" style="--d:.24s">${D.intro}</p>
+    <div class="btns rise" style="--d:.36s"><a class="btn p" href="#projects">View Projects</a><a class="btn s" href="#contact">Contact Me</a></div>
+  </div>
+  <div class="rise" style="--d:.3s">${ph(D.heroImage, "[HERO IMAGE]", "4/5")}</div>
+</div></section>
+
+<section id="about"><div class="wrap">${sh(D.about.title)}
+  <div class="ag">
+    <div class="rv">${D.about.paragraphs.map(p => `<p>${p}</p>`).join("")}${D.about.small.map(p => `<p class="small">${p}</p>`).join("")}</div>
+    <div class="rv">${ph(D.about.image, "[ABOUT IMAGE]", "4/5")}</div>
+  </div>
+</div></section>
+
+<section id="skills"><div class="wrap">${sh("Skills")}
+  <div class="sg">${D.skills.map(s => `<div class="sc rv"><h3>${s.title}</h3><p class="muted">${s.desc}</p>${tags(s.items)}</div>`).join("")}</div>
+</div></section>
+
+<section id="projects"><div class="wrap">${sh("Projects")}${D.projects.map(project).join("")}</div></section>
+
+<section id="experience"><div class="wrap">${sh(hasExp ? "Experience" : "Education")}
+  <div class="tl"${hasExp ? "" : " hidden"}>${(D.experience || []).map(e => `<div class="te rv">
+    <h3>${e.title}</h3><p class="co">${e.company}</p><p class="small">${e.dates}</p><p class="muted" style="margin-top:10px;max-width:70ch">${e.desc}</p>
+    <div class="cols"><div><h4>Responsibilities</h4>${list(e.responsibilities)}</div><div><h4>Accomplishments</h4>${list(e.accomplishments)}</div></div></div>`).join("")}</div>
+  <h3 class="sub2 rv" id="education"${hasExp ? "" : " hidden"}>Education</h3>
+  <div class="eg">${D.education.map(e => `<div class="rv"><h3>${e.institution}</h3><p>${e.degree}</p>${e.dates ? `<p class="small">${e.dates}</p>` : ""}${e.gpa ? `<p class="muted">${e.gpa}</p>` : ""}${tags(e.courses)}<p class="small">${e.extra}</p></div>`).join("")}</div>
+</div></section>
+
+<section id="resume" style="padding-top:0"><div class="wrap"><div class="rs rv">
+  <div><h2>${D.resume.title}</h2><p class="muted">${D.resume.desc}</p></div>
+  <div class="btns"><a class="btn p" href="${D.resume.view}" target="_blank" rel="noopener">View Resume</a><a class="btn s" href="${D.resume.download}" download>Download Resume</a></div>
+</div></div></section>
+
+<section id="contact"><div class="wrap">${sh(D.contact.title)}
+  <div class="cg">
+    <div class="rv"><p class="muted" style="max-width:44ch">${D.contact.intro}</p>
+      <ul class="cl">${D.contact.links.map(([l, t, h]) => `<li><span class="muted">${l}</span><a href="${h}">${t}</a></li>`).join("")}</ul></div>
+  </div>
+</div></section>`;
+
+$("#foot").innerHTML = `<span class="small">&copy; ${new Date().getFullYear()} ${D.name}. All rights reserved.</span>
+<div class="fl">${D.contact.links.map(([l, , h]) => `<a class="small" href="${h}">${l}</a>`).join("")}</div>`;
+
+/* ============================ BEHAVIOUR ============================ */
+const nav = $("#nav"), burger = $("#burger");
+const onScroll = () => nav.classList.toggle("scrolled", scrollY > 20);
+addEventListener("scroll", onScroll, { passive: true }); onScroll();
+burger.onclick = () => { const o = nav.classList.toggle("open"); burger.setAttribute("aria-expanded", o); };
+document.querySelectorAll("#navlinks a").forEach(a => a.addEventListener("click", () => { nav.classList.remove("open"); burger.setAttribute("aria-expanded", false); }));
+
+const rvIO = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); rvIO.unobserve(e.target); } }), { threshold: .12 });
+document.querySelectorAll(".rv").forEach(el => rvIO.observe(el));
+
+const links = [...document.querySelectorAll("#navlinks a")];
+const secIO = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) links.forEach(a => a.classList.toggle("on", a.getAttribute("href") === "#" + e.target.id));
+}), { rootMargin: "-45% 0px -50% 0px" });
+D.nav.forEach(([, id]) => { const s = document.getElementById(id); s && secIO.observe(s); });
+
+</script>
+</body>
+</html>
