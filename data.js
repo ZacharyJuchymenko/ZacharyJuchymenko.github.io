@@ -49,7 +49,9 @@ const DATA = {
       imageLabel: "Robotic Crane — Project Image",
       image2Label: "Robotic Crane — Testing / Hardware Image",
       tags: ["Arduino", "Embedded Systems", "Electronics", "Robotics"],
-      links: [],
+      links: [
+        { label: "View Presentation", href: "https://dalu-my.sharepoint.com/:p:/g/personal/zc707127_dal_ca/IQCJfAU6gGlGR7Mo_7NNMhZjAVip3l7SJ9CXneCsTY452D8?e=cLeIoh", embed: false }
+      ],
       details: {
         "Overview": "A team engineering project involving the design and construction of an Arduino-based robotic crane capable of moving cargo between multiple levels.",
         "Objective": "Design a reliable robotic arm capable of completing the required cargo-transfer task while meeting positional accuracy and reliability requirements.",
@@ -57,6 +59,55 @@ const DATA = {
         "Technical Details": ["Vertical and rotational arm movement", "Arduino-based control system"],
         "Results": ["At least 95% task success rate", "Approximately ±5 mm positioning accuracy over 20+ test cycles"],
         "My Contribution": "Team project completed as part of a four-person engineering team."
+      }
+    },
+    {
+      slug: "breast-cancer-imaging-tool",
+      title: "Breast Cancer Imaging Verification Tool",
+      type: "Artificial Intelligence / Biomedical Engineering",
+      event: "National Canadian Medical Datathon · Vancouver, BC · March 2026",
+      short: "A diagnostic verification tool built for the Advanced Section of the National Canadian Medical Datathon, designed to scan breast ultrasound images and assist professional verification.",
+      image: "", image2: "",
+      imageLabel: "Datathon Project — Project Image",
+      image2Label: "Datathon Project — Secondary Image",
+      tags: ["AI / Machine Learning", "Python", "HTML", "Biomedical Engineering", "Data Processing"],
+      links: [
+        { label: "Visit Project Website", href: "https://toppermcginty.github.io/Datathon/index.html", embed: false },
+        { label: "View Presentation", href: "https://dalu-my.sharepoint.com/:p:/g/personal/am917299_dal_ca/IQBynUDJbfuWxRY8TYJYzcSvUAUZB7q1plzZucj_Zq3nPJLY?e=dROsxp", embed: false }
+      ],
+      details: {
+        "Overview": "For the Advanced Section of the National Canadian Medical Datathon, I worked as part of a team on a diagnostic verification tool designed to scan breast ultrasound images using a provided dataset.",
+        "Objective": "Develop a tool that could assist medical professionals by providing an additional way to verify breast ultrasound findings. The project was designed for professional use rather than patient diagnosis.",
+        "Implementation": [
+          "Created and trained an AI model using the provided breast ultrasound dataset",
+          "Used Python to process the dataset and develop the model logic",
+          "Used HTML to build the public-facing interface",
+          "Connected dataset variables to the verification process",
+          "Created a public website to demonstrate the project"
+        ],
+        "Technical Details": ["AI/ML model trained on a breast ultrasound dataset", "Python for data processing and model logic", "HTML-based public-facing interface"],
+        "Results": ["Built and demonstrated a working verification tool during the competition", "Presented the proposed system and its application to judges and medical professionals"],
+        "My Contribution": "[YOUR SPECIFIC ROLE ON THIS PROJECT — completed as part of a team alongside Gabrielle Ouellette. Note what you personally worked on, e.g. the model, the dataset processing, or the interface.]"
+      }
+    },
+    {
+      slug: "digital-logic-fpga",
+      title: "Digital Logic & FPGA Exploration",
+      type: "Digital Systems",
+      event: "",
+      short: "Digital logic design experience using Boolean logic, Logisim, Quartus, and exploration of FPGA/SystemVerilog-based hardware design.",
+      image: "", image2: "",
+      imageLabel: "Digital Logic / FPGA — Project Image",
+      image2Label: "FPGA Design — Secondary Image",
+      tags: ["SystemVerilog", "FPGA", "Quartus", "Logisim", "Boolean Logic"],
+      links: [],
+      details: {
+        "Overview": "Digital systems work involving Boolean logic, digital circuit design, simulation, and FPGA-oriented development.",
+        "Objective": "Develop an understanding of digital hardware design and how logical systems can be implemented in programmable hardware.",
+        "Implementation": "Used digital logic simulation and FPGA development tools to design and explore hardware-based systems.",
+        "Technical Details": ["Boolean logic", "Intel Quartus", "Logisim", "SystemVerilog / FPGA exploration"],
+        "Results": ["Developed practical experience translating logic concepts into digital hardware designs"],
+        "My Contribution": "Designed and tested digital logic systems and explored FPGA-based hardware development."
       }
     },
     {
@@ -118,55 +169,6 @@ const DATA = {
         "Results": ["Measured resistor power and circuit quantities", "Compared theoretical and experimental values"],
         "My Contribution": "Built circuits, performed measurements, analyzed discrepancies, and prepared technical laboratory documentation."
       }
-    },
-    {
-      slug: "digital-logic-fpga",
-      title: "Digital Logic & FPGA Exploration",
-      type: "Digital Systems",
-      event: "",
-      short: "Digital logic design experience using Boolean logic, Logisim, Quartus, and exploration of FPGA/SystemVerilog-based hardware design.",
-      image: "", image2: "",
-      imageLabel: "Digital Logic / FPGA — Project Image",
-      image2Label: "FPGA Design — Secondary Image",
-      tags: ["SystemVerilog", "FPGA", "Quartus", "Logisim", "Boolean Logic"],
-      links: [],
-      details: {
-        "Overview": "Digital systems work involving Boolean logic, digital circuit design, simulation, and FPGA-oriented development.",
-        "Objective": "Develop an understanding of digital hardware design and how logical systems can be implemented in programmable hardware.",
-        "Implementation": "Used digital logic simulation and FPGA development tools to design and explore hardware-based systems.",
-        "Technical Details": ["Boolean logic", "Intel Quartus", "Logisim", "SystemVerilog / FPGA exploration"],
-        "Results": ["Developed practical experience translating logic concepts into digital hardware designs"],
-        "My Contribution": "Designed and tested digital logic systems and explored FPGA-based hardware development."
-      }
-    },
-    {
-      slug: "breast-cancer-imaging-tool",
-      title: "Breast Cancer Imaging Verification Tool",
-      type: "Artificial Intelligence / Biomedical Engineering",
-      event: "National Canadian Medical Datathon · Vancouver, BC · March 2026",
-      short: "A diagnostic verification tool built for the Advanced Section of the National Canadian Medical Datathon, designed to scan breast ultrasound images and assist professional verification.",
-      image: "", image2: "",
-      imageLabel: "Datathon Project — Project Image",
-      image2Label: "Datathon Project — Secondary Image",
-      tags: ["AI / Machine Learning", "Python", "HTML", "Biomedical Engineering", "Data Processing"],
-      links: [
-        { label: "Visit Project Website", href: "https://toppermcginty.github.io/Datathon/index.html", embed: false },
-        { label: "View Presentation", href: "https://dalu-my.sharepoint.com/:p:/g/personal/am917299_dal_ca/IQBynUDJbfuWxRY8TYJYzcSvUAUZB7q1plzZucj_Zq3nPJLY?e=dROsxp", embed: false }
-      ],
-      details: {
-        "Overview": "For the Advanced Section of the National Canadian Medical Datathon, I worked as part of a team on a diagnostic verification tool designed to scan breast ultrasound images using a provided dataset.",
-        "Objective": "Develop a tool that could assist medical professionals by providing an additional way to verify breast ultrasound findings. The project was designed for professional use rather than patient diagnosis.",
-        "Implementation": [
-          "Created and trained an AI model using the provided breast ultrasound dataset",
-          "Used Python to process the dataset and develop the model logic",
-          "Used HTML to build the public-facing interface",
-          "Connected dataset variables to the verification process",
-          "Created a public website to demonstrate the project"
-        ],
-        "Technical Details": ["AI/ML model trained on a breast ultrasound dataset", "Python for data processing and model logic", "HTML-based public-facing interface"],
-        "Results": ["Built and demonstrated a working verification tool during the competition", "Presented the proposed system and its application to judges and medical professionals"],
-        "My Contribution": "[YOUR SPECIFIC ROLE ON THIS PROJECT — completed as part of a team alongside Gabrielle Ouellette. Note what you personally worked on, e.g. the model, the dataset processing, or the interface.]"
-      }
     }
   ],
 
@@ -192,7 +194,7 @@ const DATA = {
 
   contact: {
     title: "Contact",
-    intro: "Interested in engineering, embedded systems, hardware, or potential opportunities? Feel free to get in touch.",
+    intro: "Interested in engineering, embedded systems, hardware, or potential opportunities? Feel free to get in touch!",
     links: [
       ["Email", "Zachary.Juchymenko@dal.ca", "mailto:Zachary.Juchymenko@dal.ca"],
       ["LinkedIn", "linkedin.com/in/zach-juchymenko-022253325", "https://www.linkedin.com/in/zach-juchymenko-022253325"]
@@ -226,9 +228,10 @@ function media(src, label, ratio, opts) {
   else if (/youtu\.?be/.test(src)) {
     m = `<iframe src="${embedUrl(src)}" title="${label}" allowfullscreen loading="lazy"></iframe>`;
   } else if (/\.(mp4|webm|mov)(\?|$)/i.test(src)) {
-    m = opts.controls === false
-      ? `<video src="${src}" muted loop autoplay playsinline preload="metadata"></video>`
-      : `<video src="${src}" controls playsinline preload="metadata"></video>`;
+    const ext = (src.match(/\.(mp4|webm|mov)(\?|$)/i) || [,"mp4"])[1].toLowerCase();
+    const mime = ext === "webm" ? "video/webm" : "video/mp4";
+    const attrs = opts.controls === false ? "muted loop autoplay playsinline" : "controls playsinline";
+    m = `<video ${attrs} preload="metadata"><source src="${src}" type="${mime}">Your browser can't play this video. <a href="${src}">Download it instead</a>.</video>`;
   } else {
     m = `<img src="${src}" alt="${label}" loading="lazy">`;
   }

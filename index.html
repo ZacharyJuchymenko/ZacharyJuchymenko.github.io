@@ -24,15 +24,16 @@ const D = DATA, $ = s => document.querySelector(s);
 function projectCard(p) {
   const thumbSrc = p.image || p.image2;
   const thumbLabel = p.image ? p.imageLabel : p.image2Label;
-  return `<a class="pcard rv" href="project.html?slug=${encodeURIComponent(p.slug)}">
+  return `<article class="pcard rv">
     ${media(thumbSrc, thumbLabel, "4/3", { controls: false })}
     <div class="pcard-body">
       <span class="type">${p.type}</span>
       <h3>${p.title}</h3>
       <p class="short">${p.short}</p>
       ${tagsHtml(p.tags)}
+      <a class="btn p pcard-btn" href="project.html?slug=${encodeURIComponent(p.slug)}">View Project</a>
     </div>
-  </a>`;
+  </article>`;
 }
 
 const hasExp = (D.experience || []).length > 0;
@@ -52,10 +53,7 @@ $("#app").innerHTML = `
 </div></section>
 
 <section id="about"><div class="wrap">${sh(D.about.title)}
-  <div class="ag">
-    <div class="rv">${D.about.paragraphs.map(p => `<p>${p}</p>`).join("")}${D.about.small.map(p => `<p class="small">${p}</p>`).join("")}</div>
-    <div class="rv">${media(D.about.image, "[ABOUT IMAGE]", "4/5")}</div>
-  </div>
+  <div class="ag-single rv">${D.about.paragraphs.map(p => `<p>${p}</p>`).join("")}${D.about.small.map(p => `<p class="small">${p}</p>`).join("")}</div>
 </div></section>
 
 <section id="projects"><div class="wrap">${sh("Projects")}
