@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Project | Zachary Juchymenko</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<nav id="nav" class="scrolled"><div class="wrap nb">
+  <a class="logo" href="index.html" id="logo"></a>
+  <a class="back" href="index.html#projects">&larr; Back to Projects</a>
+</div></nav>
+<main id="app"></main>
+<footer><div class="wrap fb" id="foot"></div></footer>
+
+<script src="data.js"></script>
+<script>
+const D = DATA, $ = s => document.querySelector(s);
+$("#logo").textContent = D.name;
+
+const slug = new URLSearchParams(location.search).get("slug");
+const p = D.projects.find(x => x.slug === slug);
+
+function linkButton(l, i) {
+  return `<a class="btn ${i === 0 ? "p" : "s"}" href="${l.href}" target="_blank" rel="noopener">${l.label}</a>`;
+}
+function embedsHtml(links) {
+  return links.filter(l => l.embed && isEmbeddable(l.href)).map(l =>
+    `<div class="embed-wrap rv"><iframe src="${embedUrl(l.href)}" title="${l.label}" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div>`
+  ).join("");
+}
+
+if (!p) {
+  $("#app").innerHTML = `<section class="pd-head"><div class="wrap-n">
+    <h1>Project not found</h1>
+    <p class="muted" style="margin-top:14px">That project link doesn't match anything. <a href="index.html#projects">Back to all projects &rarr;</a></p>
+  </div></section>`;
+  document.title = "Project not found | " + D.name;
+} else {
+  document.title = `${p.title} | ${D.name}`;
+  const det = p.details || {};
+  const links = p.links || [];
+  const media2 = p.image2 ? media(p.image2, p.image2Label, "16/10") : "";
+
+  $("#app").innerHTML = `
+  <section class="pd-head"><div class="wrap-n">
+    <span class="pd-type rv">${p.type}</span>
+    <h1 class="rv">${p.title}</h1>
+    ${p.event ? `<p class="pd-event rv">${p.event}</p>` : ""}
+    ${tagsHtml(p.tags)}
+    <div class="pd-media">
+      ${p.image ? media(p.image, p.imageLabel, "16/10") : (p.image2 ? "" : media("", p.imageLabel, "16/10"))}
+      ${media2}
+    </div>
+    ${links.length ? `<div class="pd-links btns rv">${links.map(linkButton).join("")}</div>` : ""}
+    ${embedsHtml(links)}
+    <div class="det">${Object.entries(det).map(([k, v]) => `<div class="rv"><h4>${k}</h4>${Array.isArray(v) ? list(v) : `<p>${v}</p>`}</div>`).join("")}</div>
+    <p style="margin-top:56px"><a class="back" href="index.html#projects">&larr; Back to Projects</a></p>
+  </div></section>`;
+}
+
+$("#foot").innerHTML = `<span class="small">&copy; ${new Date().getFullYear()} ${D.name}. All rights reserved.</span>
+<div class="fl">${D.contact.links.map(([l, , h]) => `<a class="small" href="${h}">${l}</a>`).join("")}</div>`;
+
+const rvIO = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); rvIO.unobserve(e.target); } }), { threshold: .1 });
+document.querySelectorAll(".rv").forEach(el => rvIO.observe(el));
+</script>
+</body>
+</html>
