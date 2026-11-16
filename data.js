@@ -221,7 +221,7 @@ teams: [
 
   contact: {
     title: "Contact",
-    intro: "Interested in engineering, embedded systems, hardware, or potential opportunities? Feel free to get in touch!",
+    intro: "I'm always interested in meeting people working in hardware, and embedded systems! Feel free to get in touch!",
     links: [
       ["Email", "Zachary.Juchymenko@dal.ca", "mailto:Zachary.Juchymenko@dal.ca"],
       ["LinkedIn", "linkedin.com/in/zach-juchymenko-022253325", "https://www.linkedin.com/in/zach-juchymenko-022253325"]
