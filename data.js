@@ -86,7 +86,7 @@ const DATA = {
       type: "Digital Systems",
       event: "",
       short: "Digital logic design experience using Boolean logic, Logisim, Quartus, and exploration of FPGA/SystemVerilog-based hardware design.",
-      image: "", image2: "",
+      image: "images/AlteraFPGAboardImage.jpeg", image2: "",
       imageLabel: "Digital Logic / FPGA — Project Image",
       image2Label: "FPGA Design — Secondary Image",
       tags: ["SystemVerilog", "FPGA", "Quartus", "Logisim", "Boolean Logic"],
