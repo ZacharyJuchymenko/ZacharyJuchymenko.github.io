@@ -78,7 +78,7 @@ ${(D.teams || []).length ? `<section id="teams"><div class="wrap">${sh("Teams")}
 
 <section id="resume" style="padding-top:0"><div class="wrap"><div class="rs rv">
   <div><h2>${D.resume.title}</h2><p class="muted">${D.resume.desc}</p></div>
-  <div class="btns"><a class="btn p" href="${D.resume.view}" target="_blank" rel="noopener">View Resume</a><a class="btn s" href="${D.resume.download}" download>Download Resume</a></div>
+  <div class="btns"><a class="btn p" href="${encodeURI(D.resume.file)}" target="_blank" rel="noopener">View Resume</a><a class="btn s" href="${encodeURI(D.resume.file)}" download="${D.resume.downloadName || ""}">Download Resume</a></div>
 </div></div></section>
 
 <section id="contact"><div class="wrap">${sh(D.contact.title)}

@@ -1,3 +1,17 @@
+/* =====================================================================
+   This file is shared by index.html and project.html.
+   - Leave an image field as "" to show the placeholder box.
+   - Set it to a path/URL (e.g. "images/pcb.jpg") to show your image.
+   - Video works the same way: "videos/demo.mp4", or a YouTube link.
+   - Every project/team needs a unique `slug` (used in the URL: project.html?slug=...).
+   - `links`: each is { label, href, embed }. embed:true auto-embeds YouTube
+     or Google Slides/Docs links on the project page; everything else (including
+     OneDrive/SharePoint presentations) shows as a normal button that opens in
+     a new tab, since those usually can't be embedded without extra setup.
+   - `projects` and `teams` are both LISTS: [ { ... }, { ... } ]. Each item is
+     wrapped in its own { } and separated by a comma. Don't put { } directly
+     inside another { } without a name in front of it, that breaks the whole page.
+   ===================================================================== */
 const DATA = {
   name: "Zachary Juchymenko",
   role: "Electrical Engineering | Embedded Systems & Hardware",
@@ -61,7 +75,7 @@ const DATA = {
       tags: ["AI / Machine Learning", "Python", "HTML", "Biomedical Engineering", "Data Processing"],
       links: [
         { label: "Visit Project Website", href: "https://toppermcginty.github.io/Datathon/index.html", embed: false },
-        { label: "View Presentation", href: "https://dalu-my.sharepoint.com/:p:/g/personal/zc707127_dal_ca/IQBQkAfqAwcbRpfZPG_b2RAGAWHoF3NMDdm_mvixWzIexvw", embed: false }
+        { label: "View Presentation", href: "https://dalu-my.sharepoint.com/:p:/g/personal/zc707127_dal_ca/IQBQkAfqAwcbRpfZPG_b2RAGAWHoF3NMDdm_mvixWzIexvw?e=y7Dar5", embed: false }
       ],
       details: {
         "Overview": "For the Advanced Section of the National Canadian Medical Datathon, I worked as part of a team on a diagnostic verification tool designed to scan breast ultrasound images using a provided dataset.",
@@ -200,8 +214,10 @@ const DATA = {
   resume: {
     title: "Resume",
     desc: "View or download my resume for a complete overview of my education, technical skills, projects, and experience.",
-    view: "#",
-    download: "#"
+    /* Path to your resume PDF, relative to the site root. Must match the filename on GitHub exactly (case and spaces). */
+    file: "Resume_Zach_Juchymenko 2026.pdf",
+    /* Name the file gets when a visitor clicks Download */
+    downloadName: "Resume_Zach_Juchymenko_2026.pdf"
   },
 
   contact: {
