@@ -46,10 +46,10 @@ const DATA = {
         "Implementation": "Built and tested a vertical and rotational electric arm using Arduino-based control and iterative hardware testing.",
         "Technical Details": ["Vertical and rotational arm movement", "Arduino-based control system"],
         "Results": ["At least 95% task success rate", "Approximately ±5 mm positioning accuracy over 20+ test cycles"],
-        "My Contribution": "Team project was completed as part of a four-person engineering team:",
-           ["Accelerometer-Based Safety System: Developed an accelerometer-based safety feature to detect excessive arm movement, display alerts on an LCD screen, and trigger an emergency shutdown.", 
-           "-Code Integration: Integrated team members' code into a shared OneDrive workspace, ensuring all header files, main files, and subprocesses worked together seamlessly.",
-           "-LCD Communication: Implemented LCD functionality and assisted teammates in integrating their subprocesses to display system information and status updates."],
+        "My Contribution": ["Team project was completed as part of a four-person engineering team",
+           "Accelerometer-Based Safety System: Developed an accelerometer-based safety feature to detect excessive arm movement, display alerts on an LCD screen, and trigger an emergency shutdown.", 
+           "Code Integration: Integrated team members' code into a shared OneDrive workspace, ensuring all header files, main files, and subprocesses worked together seamlessly.",
+           "LCD Communication: Implemented LCD functionality and assisted teammates in integrating their subprocesses to display system information and status updates."],
       }
     },
     {
@@ -78,7 +78,6 @@ const DATA = {
         ],
         "Technical Details": ["AI/ML model trained on a breast ultrasound dataset", "Python for data processing and model logic", "HTML-based public-facing interface"],
         "Results": ["Built and demonstrated a working verification tool during the competition", "Presented the proposed system and its application to judges and medical professionals"],
-        "My Contribution": "[YOUR SPECIFIC ROLE ON THIS PROJECT — completed as part of a team alongside Gabrielle Ouellette. Note what you personally worked on, e.g. the model, the dataset processing, or the interface.]"
       }
     },
     {
@@ -95,10 +94,9 @@ const DATA = {
       details: {
         "Overview": "Digital systems work involving Boolean logic, digital circuit design, simulation, and FPGA-oriented development.",
         "Objective": "Develop an understanding of digital hardware design and how logical systems can be implemented in programmable hardware.",
-        "Implementation": "Used digital logic simulation and FPGA development tools to design and explore hardware-based systems.",
+        "Implementation": "Used digital logic simulation and FPGA development tools such as Quartus to design and explore hardware-based systems.",
         "Technical Details": ["Boolean logic", "Intel Quartus", "Logisim", "SystemVerilog / FPGA exploration"],
         "Results": ["Developed practical experience translating logic concepts into digital hardware designs"],
-        "My Contribution": "Designed and tested digital logic systems and explored FPGA-based hardware development."
       }
     },
     {
@@ -117,7 +115,7 @@ const DATA = {
         "Objective": "Create a responsive hardware system that detects user input, measures the elapsed time, and presents the result.",
         "Implementation": "Developed the embedded control logic and interfaced the required input/output hardware with the Arduino platform.",
         "Technical Details": ["Microcontroller-based timing", "Hardware input/output interfacing"],
-        "Results": ["Functional reaction-time measurement system"],
+        "Results": ["Functional reaction-time measurement system", "Accounted for debouncing", "Communicated results to a LCD screen"],
         "My Contribution": "Designed and implemented the embedded project as a hands-on electronics project."
       }
     },
@@ -136,7 +134,7 @@ const DATA = {
         "Overview": "Microprocessor coursework and hands-on work using the ATmega328P/Arduino Nano platform.",
         "Objective": "Understand and implement low-level microcontroller functionality using both C and AVR assembly.",
         "Implementation": "Worked with GPIO registers, bit manipulation, timing loops, program flow, and embedded C/assembly code.",
-        "Technical Details": ["ATmega328P", "16 MHz Arduino Nano clock", "DDRB and PORTB GPIO registers"],
+        "Technical Details": ["ATmega328P Microcontroller", "16 MHz Arduino Nano clock", "Configured DDRB and PORTB GPIO registers"],
         "Results": ["Compared C and assembly implementations and compiled program sizes", "Implemented GPIO control and timing routines"],
         "My Contribution": "Implemented, tested, and debugged microprocessor programs while analyzing their low-level operation."
       }
