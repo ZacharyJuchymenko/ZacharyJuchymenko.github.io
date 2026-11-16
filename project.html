@@ -22,7 +22,7 @@ const D = DATA, $ = s => document.querySelector(s);
 $("#logo").textContent = D.name;
 
 const slug = new URLSearchParams(location.search).get("slug");
-const p = D.projects.find(x => x.slug === slug);
+const p = [...D.projects, ...(D.teams || [])].find(x => x.slug === slug);
 
 function linkButton(l, i) {
   return `<a class="btn ${i === 0 ? "p" : "s"}" href="${l.href}" target="_blank" rel="noopener">${l.label}</a>`;

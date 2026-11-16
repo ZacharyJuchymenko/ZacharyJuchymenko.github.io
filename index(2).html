@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zachary Juchymenko | Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<nav id="nav"><div class="wrap nb">
+  <a class="logo" href="#home" id="logo"></a>
+  <button class="burger" id="burger" aria-label="Toggle menu" aria-expanded="false"><i></i><i></i><i></i></button>
+  <ul class="nl" id="navlinks"></ul>
+</div></nav>
+<main id="app"></main>
+<footer><div class="wrap fb" id="foot"></div></footer>
+
+<script src="data.js"></script>
+<script>
+const D = DATA, $ = s => document.querySelector(s);
+
+function projectCard(p) {
+  const thumbSrc = p.image || p.image2;
+  const thumbLabel = p.image ? p.imageLabel : p.image2Label;
+  return `<article class="pcard rv">
+    ${media(thumbSrc, thumbLabel, "4/3", { controls: false })}
+    <div class="pcard-body">
+      <span class="type">${p.type}</span>
+      <h3>${p.title}</h3>
+      <p class="short">${p.short}</p>
+      ${tagsHtml(p.tags)}
+      <a class="btn p pcard-btn" href="project.html?slug=${encodeURIComponent(p.slug)}">View Project</a>
+    </div>
+  </article>`;
+}
+
+const hasExp = (D.experience || []).length > 0;
+$("#navlinks").innerHTML = D.nav.map(([l, id]) => `<li><a href="#${id}">${l}</a></li>`).join("");
+$("#logo").textContent = D.name;
+document.title = `${D.name} | Portfolio`;
+
+$("#app").innerHTML = `
+<section id="home"><div class="wrap hero hg">
+  <div>
+    <h1 class="rise">${D.name}</h1>
+    <p class="sub rise" style="--d:.12s">${D.role}</p>
+    <p class="in rise" style="--d:.24s">${D.intro}</p>
+    <div class="btns rise" style="--d:.36s"><a class="btn p" href="#projects">View Projects</a><a class="btn s" href="#contact">Contact Me</a></div>
+  </div>
+  <div class="rise" style="--d:.3s">${media(D.heroImage, D.name, "4/5")}</div>
+</div></section>
+
+<section id="about"><div class="wrap">${sh(D.about.title)}
+  <div class="ag-single rv">${D.about.paragraphs.map(p => `<p>${p}</p>`).join("")}${D.about.small.map(p => `<p class="small">${p}</p>`).join("")}</div>
+</div></section>
+
+<section id="projects"><div class="wrap">${sh("Projects")}
+  <div class="pgrid">${D.projects.map(projectCard).join("")}</div>
+</div></section>
+
+${(D.teams || []).length ? `<section id="teams"><div class="wrap">${sh("Teams")}
+  <div class="pgrid">${D.teams.map(projectCard).join("")}</div>
+</div></section>` : ""}
+
+<section id="skills"><div class="wrap">${sh("Skills")}
+  <div class="sg">${D.skills.map(s => `<div class="sc rv"><h3>${s.title}</h3><p class="muted">${s.desc}</p>${tagsHtml(s.items)}</div>`).join("")}</div>
+</div></section>
+
+<section id="experience"><div class="wrap">${sh(hasExp ? "Experience" : "Education")}
+  <div class="tl"${hasExp ? "" : " hidden"}>${(D.experience || []).map(e => `<div class="te rv">
+    <h3>${e.title}</h3><p class="co">${e.company}</p><p class="small">${e.dates}</p><p class="muted" style="margin-top:10px;max-width:70ch">${e.desc}</p>
+    <div class="cols"><div><h4>Responsibilities</h4>${list(e.responsibilities)}</div><div><h4>Accomplishments</h4>${list(e.accomplishments)}</div></div></div>`).join("")}</div>
+  <h3 class="sub2 rv" id="education"${hasExp ? "" : " hidden"}>Education</h3>
+  <div class="eg">${D.education.map(e => `<div class="rv"><h3>${e.institution}</h3><p>${e.degree}</p>${e.dates ? `<p class="small">${e.dates}</p>` : ""}${e.gpa ? `<p class="muted">${e.gpa}</p>` : ""}${tagsHtml(e.courses)}<p class="small">${e.extra}</p></div>`).join("")}</div>
+</div></section>
+
+<section id="resume" style="padding-top:0"><div class="wrap"><div class="rs rv">
+  <div><h2>${D.resume.title}</h2><p class="muted">${D.resume.desc}</p></div>
+  <div class="btns"><a class="btn p" href="${D.resume.view}" target="_blank" rel="noopener">View Resume</a><a class="btn s" href="${D.resume.download}" download>Download Resume</a></div>
+</div></div></section>
+
+<section id="contact"><div class="wrap">${sh(D.contact.title)}
+  <div class="cg rv"><p class="muted" style="max-width:44ch">${D.contact.intro}</p>
+    <ul class="cl">${D.contact.links.map(([l, t, h]) => `<li><span class="muted">${l}</span><a href="${h}">${t}</a></li>`).join("")}</ul></div>
+</div></section>`;
+
+$("#foot").innerHTML = `<span class="small">&copy; ${new Date().getFullYear()} ${D.name}. All rights reserved.</span>
+<div class="fl">${D.contact.links.map(([l, , h]) => `<a class="small" href="${h}">${l}</a>`).join("")}</div>`;
+
+/* ============================ BEHAVIOUR ============================ */
+const nav = $("#nav"), burger = $("#burger");
+const onScroll = () => nav.classList.toggle("scrolled", scrollY > 20);
+addEventListener("scroll", onScroll, { passive: true }); onScroll();
+burger.onclick = () => { const o = nav.classList.toggle("open"); burger.setAttribute("aria-expanded", o); };
+document.querySelectorAll("#navlinks a").forEach(a => a.addEventListener("click", () => { nav.classList.remove("open"); burger.setAttribute("aria-expanded", false); }));
+
+const rvIO = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); rvIO.unobserve(e.target); } }), { threshold: .12 });
+document.querySelectorAll(".rv").forEach(el => rvIO.observe(el));
+
+const navAs = [...document.querySelectorAll("#navlinks a")];
+const secIO = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) navAs.forEach(a => a.classList.toggle("on", a.getAttribute("href") === "#" + e.target.id));
+}), { rootMargin: "-45% 0px -50% 0px" });
+D.nav.forEach(([, id]) => { const s = document.getElementById(id); s && secIO.observe(s); });
+</script>
+</body>
+</html>
