@@ -1,15 +1,3 @@
-/* =====================================================================
-   EDIT YOUR CONTENT HERE. This file is shared by index.html and project.html.
-   - Leave an image field as "" to show the placeholder box.
-   - Set it to a path/URL (e.g. "images/pcb.jpg") to show your image.
-   - Video works the same way: "videos/demo.mp4", or a YouTube link.
-   - Every project needs a unique `slug` (used in the URL: project.html?slug=...).
-   - `links`: each is { label, href, embed }. embed:true auto-embeds YouTube
-     or Google Slides/Docs links on the project page; everything else (including
-     OneDrive/SharePoint presentations) shows as a normal button that opens in
-     a new tab, since those usually can't be embedded without extra setup.
-   - Copy a whole { ... } block in `projects`, `experience`, etc. to add more.
-   ===================================================================== */
 const DATA = {
   name: "Zachary Juchymenko",
   role: "Electrical Engineering | Embedded Systems & Hardware",
@@ -31,7 +19,7 @@ const DATA = {
   },
 
   skills: [
-    { title: "Programming", desc: "Programming languages and development experience used across engineering coursework and projects.", items: ["C", "C++", "Python", "MATLAB"] },
+    { title: "Programming", desc: "Programming languages and development experience used across engineering coursework and projects.", items: ["C", "C++", "Python", "MATLAB", "AVR Assembly"] },
     { title: "Hardware / Electronics", desc: "Hands-on experience designing, building, measuring, and debugging electronic systems.", items: ["Circuit Design", "Oscilloscopes", "Soldering", "Breadboarding"] },
     { title: "Embedded Systems", desc: "Experience with microprocessors, Arduino-based systems, and low-level embedded programming.", items: ["Microprocessors", "Arduino", "AVR Assembly", "Embedded Debugging"] },
     { title: "Software / Tools", desc: "Engineering software used for circuit design, digital logic, PCB work, and development.", items: ["KiCad", "LTSpice", "Intel Quartus", "Logisim", "Microchip Studio", "SolidWorks"] },
@@ -45,7 +33,7 @@ const DATA = {
       type: "Embedded Systems / Robotics",
       event: "",
       short: "Arduino-controlled robotic crane designed to transfer cargo between multiple levels using vertical and rotational movement.",
-      image: "", image2: "",
+      image: "/images/Arduino-BasedRoboticCrane_Development.jpg", image2: "",
       imageLabel: "Robotic Crane — Project Image",
       image2Label: "Robotic Crane — Testing / Hardware Image",
       tags: ["Arduino", "Embedded Systems", "Electronics", "Robotics"],
@@ -65,15 +53,15 @@ const DATA = {
       slug: "breast-cancer-imaging-tool",
       title: "Breast Cancer Imaging Verification Tool",
       type: "Artificial Intelligence / Biomedical Engineering",
-      event: "National Canadian Medical Datathon · Vancouver, BC · March 2026",
+      event: "National Canadian Medical Datathon · March 2026",
       short: "A diagnostic verification tool built for the Advanced Section of the National Canadian Medical Datathon, designed to scan breast ultrasound images and assist professional verification.",
-      image: "", image2: "",
+      image: "images/Screenshot 2026-11-16 at 16-22-33 Breast Cancer Diagnosis Verification.png", image2: "",
       imageLabel: "Datathon Project — Project Image",
       image2Label: "Datathon Project — Secondary Image",
       tags: ["AI / Machine Learning", "Python", "HTML", "Biomedical Engineering", "Data Processing"],
       links: [
         { label: "Visit Project Website", href: "https://toppermcginty.github.io/Datathon/index.html", embed: false },
-        { label: "View Presentation", href: "https://dalu-my.sharepoint.com/:p:/g/personal/am917299_dal_ca/IQBynUDJbfuWxRY8TYJYzcSvUAUZB7q1plzZucj_Zq3nPJLY?e=dROsxp", embed: false }
+        { label: "View Presentation", href: "https://dalu-my.sharepoint.com/:p:/g/personal/zc707127_dal_ca/IQBQkAfqAwcbRpfZPG_b2RAGAWHoF3NMDdm_mvixWzIexvw", embed: false }
       ],
       details: {
         "Overview": "For the Advanced Section of the National Canadian Medical Datathon, I worked as part of a team on a diagnostic verification tool designed to scan breast ultrasound images using a provided dataset.",
@@ -171,10 +159,26 @@ const DATA = {
       }
     }
   ],
-
-  /* Leave empty until you add jobs. Format:
-     { title:"", company:"", dates:"", desc:"", responsibilities:["",""], accomplishments:["",""] } */
-  experience: [],
+  teams: {
+    {
+      slug: "teams",
+      title: "Combat Robotics Team - On going",
+      type: "Dalhousie Team",
+      event: "",
+      short: "",
+      image: "",
+      imageLabel: "AVR Microprocessor — Project Image",
+      tags: ["Soldering", "PCB Architecture", "Microprocessors", " "],
+      links: [],
+      details: {
+        "Overview": "Microprocessor coursework and hands-on work using the ATmega328P/Arduino Nano platform.",
+        "Objective": "Understand and implement low-level microcontroller functionality using both C and AVR assembly.",
+        "Implementation": "Worked with GPIO registers, bit manipulation, timing loops, program flow, and embedded C/assembly code.",
+        "Technical Details": ["ATmega328P", "16 MHz Arduino Nano clock", "DDRB and PORTB GPIO registers"],
+        "Results": ["Compared C and assembly implementations and compiled program sizes", "Implemented GPIO control and timing routines"],
+        "My Contribution": "Implemented, tested, and debugged connections between the ESP32 and other on board components."
+      }
+  },
 
   education: [
     {
@@ -201,6 +205,19 @@ const DATA = {
     ]
   }
 };
+
+/* =====================================================================
+   This file is shared by index.html and project.html.
+   - Leave an image field as "" to show the placeholder box.
+   - Set it to a path/URL (e.g. "images/pcb.jpg") to show your image.
+   - Video works the same way: "videos/demo.mp4", or a YouTube link.
+   - Every project needs a unique `slug` (used in the URL: project.html?slug=...).
+   - `links`: each is { label, href, embed }. embed:true auto-embeds YouTube
+     or Google Slides/Docs links on the project page; everything else (including
+     OneDrive/SharePoint presentations) shows as a normal button that opens in
+     a new tab, since those usually can't be embedded without extra setup.
+   - Copy a whole { ... } block in `projects`, `experience`, etc. to add more.
+   ===================================================================== */
 
 /* ============================ SHARED HELPERS ============================ */
 const list = a => `<ul>${a.map(x => `<li>${x}</li>`).join("")}</ul>`;
