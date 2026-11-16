@@ -1,17 +1,3 @@
-/* =====================================================================
-   This file is shared by index.html and project.html.
-   - Leave an image field as "" to show the placeholder box.
-   - Set it to a path/URL (e.g. "images/pcb.jpg") to show your image.
-   - Video works the same way: "videos/demo.mp4", or a YouTube link.
-   - Every project/team needs a unique `slug` (used in the URL: project.html?slug=...).
-   - `links`: each is { label, href, embed }. embed:true auto-embeds YouTube
-     or Google Slides/Docs links on the project page; everything else (including
-     OneDrive/SharePoint presentations) shows as a normal button that opens in
-     a new tab, since those usually can't be embedded without extra setup.
-   - `projects` and `teams` are both LISTS: [ { ... }, { ... } ]. Each item is
-     wrapped in its own { } and separated by a comma. Don't put { } directly
-     inside another { } without a name in front of it, that breaks the whole page.
-   ===================================================================== */
 const DATA = {
   name: "Zachary Juchymenko",
   role: "Electrical Engineering | Embedded Systems & Hardware",
@@ -60,7 +46,10 @@ const DATA = {
         "Implementation": "Built and tested a vertical and rotational electric arm using Arduino-based control and iterative hardware testing.",
         "Technical Details": ["Vertical and rotational arm movement", "Arduino-based control system"],
         "Results": ["At least 95% task success rate", "Approximately ±5 mm positioning accuracy over 20+ test cycles"],
-        "My Contribution": "Team project completed as part of a four-person engineering team."
+        "My Contribution": "Team project was completed as part of a four-person engineering team:",
+           ["Accelerometer-Based Safety System: Developed an accelerometer-based safety feature to detect excessive arm movement, display alerts on an LCD screen, and trigger an emergency shutdown.", 
+           "-Code Integration: Integrated team members' code into a shared OneDrive workspace, ensuring all header files, main files, and subprocesses worked together seamlessly.",
+           "-LCD Communication: Implemented LCD functionality and assisted teammates in integrating their subprocesses to display system information and status updates."],
       }
     },
     {
@@ -229,6 +218,22 @@ const DATA = {
     ]
   }
 };
+
+/* =====================================================================
+   This file is shared by index.html and project.html.
+   - Leave an image field as "" to show the placeholder box.
+   - Set it to a path/URL (e.g. "images/pcb.jpg") to show your image.
+   - Video works the same way: "videos/demo.mp4", or a YouTube link.
+   - Every project/team needs a unique `slug` (used in the URL: project.html?slug=...).
+   - `links`: each is { label, href, embed }. embed:true auto-embeds YouTube
+     or Google Slides/Docs links on the project page; everything else (including
+     OneDrive/SharePoint presentations) shows as a normal button that opens in
+     a new tab, since those usually can't be embedded without extra setup.
+   - `projects` and `teams` are both LISTS: [ { ... }, { ... } ]. Each item is
+     wrapped in its own { } and separated by a comma. Don't put { } directly
+     inside another { } without a name in front of it, that breaks the whole page.
+   ===================================================================== */
+
 
 /* ============================ SHARED HELPERS ============================ */
 const list = a => `<ul>${a.map(x => `<li>${x}</li>`).join("")}</ul>`;
