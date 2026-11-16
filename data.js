@@ -162,28 +162,40 @@ const DATA = {
   ],
 
   /* Teams: same format as projects. Shown in their own "Teams" section. */
-  teams: [
-    {
-      slug: "combat-robotics",
-      title: "Combat Robotics Team (Ongoing)",
-      type: "Dalhousie Team",
-      event: "",
-      short: "[SHORT TEAM DESCRIPTION]",
-      image: "", image2: "",
-      imageLabel: "Combat Robotics — Team Image",
-      image2Label: "Combat Robotics — Secondary Image",
-      tags: ["Soldering", "PCB Architecture", "Microprocessors", "ESP32"],
-      links: [],
-      details: {
-        "Overview": "[TEAM OVERVIEW]",
-        "Objective": "[WHAT THE TEAM IS TRYING TO ACCOMPLISH]",
-        "Implementation": "[HOW THE ROBOT / ELECTRONICS ARE BEING BUILT]",
-        "Technical Details": ["[SPECIFICATION OR DESIGN DECISION]", "[SPECIFICATION OR DESIGN DECISION]"],
-        "Results": ["[OUTCOME OR PROGRESS SO FAR]"],
-        "My Contribution": "Implemented, tested, and debugged connections between the ESP32 and other on board components."
-      }
+  
+teams: [
+  {
+    slug: "combat-robotics",
+    title: "Combat Robotics Team (Ongoing)",
+    type: "Dalhousie Team",
+    event: "National Havoc Robotics League (NHRL)",
+    short: "Student-led engineering team designing and building competitive 3 lb combat robots, integrating custom mechanical, electrical, and software systems.",
+    image: "",
+    image2: "",
+    imageLabel: "Combat Robotics — Team Image",
+    image2Label: "Combat Robotics — Secondary Image",
+    tags: ["Soldering", "PCB Architecture", "Microprocessors", "ESP32"],
+    links: [
+      { label: "View Website", href: "dalcrt.ca", embed: false}
+      ],
+    details: {
+      "Overview": "The Dalhousie Combat Robotics Team (DCRT) is a multidisciplinary engineering team focused on designing, manufacturing, and programming competitive combat robots.",
+      "Objective": "Develop a reliable, high-performance 3 lb combat robot capable of competing in the National Havoc Robotics League (NHRL).",
+      "Implementation": "Integrating mechanical, electrical, and software subsystems, including custom PCB designs, ESP32 microcontrollers, and onboard electronic components to support robot control and operation.",
+      "Technical Details": [
+        "ESP32-based embedded electronics and two way communication between onboard components.",
+        "PCB architecture, soldering, and electrical integration of robot subsystems.",
+        "Development of a 3 lb vertical-spinner combat robot."
+      ],
+      "Results": [
+        "Ongoing development and integration of mechanical, electrical, and software subsystems.",
+        "Testing and debugging onboard electronics to improve system reliability."
+      ],
+      "My Contribution": "Implemented, tested, and debugged connections between the ESP32 microcontroller and onboard electronic components, supporting reliable communication and subsystem integration."
     }
-  ],
+  }
+],
+
 
   /* Leave empty until you add jobs. Format:
      { title:"", company:"", dates:"", desc:"", responsibilities:["",""], accomplishments:["",""] } */
