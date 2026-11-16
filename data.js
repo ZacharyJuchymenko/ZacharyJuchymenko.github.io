@@ -104,7 +104,7 @@ const DATA = {
       type: "Embedded Systems / Arduino",
       event: "",
       short: "Arduino-based reaction-time project demonstrating embedded programming, hardware interfacing, and timing measurement.",
-      image: "", image2: "videos/reaction-tester.mp4?v=2",
+      image2: "videos/reaction-tester.mp4", image: "",
       imageLabel: "Reaction Time Tester — Project Image",
       image2Label: "Reaction Time Tester — Demo Video",
       tags: ["Arduino", "C/C++", "Embedded Systems", "Timing"],
