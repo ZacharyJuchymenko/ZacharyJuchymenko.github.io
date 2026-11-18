@@ -176,7 +176,7 @@ teams: [
     image2Label: "Combat Robotics — Secondary Image",
     tags: ["Soldering", "PCB Architecture", "Microprocessors", "ESP32"],
     links: [
-      { label: "View Website", href: "dalcrt.ca", embed: false}
+      { label: "View Website", href: "https:dalcrt.ca", embed: false}
       ],
     details: {
       "Overview": "The Dalhousie Combat Robotics Team (DCRT) is a multidisciplinary engineering team focused on designing, manufacturing, and programming competitive combat robots.",
