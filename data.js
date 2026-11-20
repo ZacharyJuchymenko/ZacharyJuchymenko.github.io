@@ -80,25 +80,45 @@ const DATA = {
         "Results": ["Built and demonstrated a working verification tool during the competition", "Presented the proposed system and its application to judges and medical professionals"],
       }
     },
-    {
-      slug: "digital-logic-fpga",
-      title: "Digital Logic & FPGA Exploration",
-      type: "Digital Systems",
-      event: "",
-      short: "Digital logic design experience using Boolean logic, Logisim, Quartus, and exploration of FPGA/SystemVerilog-based hardware design.",
-      image: "images/AlteraFPGAboardImage.jpeg", image2: "",
-      imageLabel: "Digital Logic / FPGA — Project Image",
-      image2Label: "FPGA Design — Secondary Image",
-      tags: ["SystemVerilog", "FPGA", "Quartus", "Logisim", "Boolean Logic"],
-      links: [],
-      details: {
-        "Overview": "Digital systems work involving Boolean logic, digital circuit design, simulation, and FPGA-oriented development.",
-        "Objective": "Develop an understanding of digital hardware design and how logical systems can be implemented in programmable hardware.",
-        "Implementation": "Used digital logic simulation and FPGA development tools such as Quartus to design and explore hardware-based systems.",
-        "Technical Details": ["Boolean logic", "Intel Quartus", "Logisim", "SystemVerilog / FPGA exploration"],
-        "Results": ["Developed practical experience translating logic concepts into digital hardware designs"],
-      }
-    },
+    
+{
+  slug: "digital-logic-fpga",
+  title: "Digital Logic & FPGA Exploration",
+  type: "Digital Systems",
+  event: "",
+  short: "Designed and simulated combinational and sequential logic circuits using Boolean algebra, Logisim, and Quartus, with additional exploration of FPGA and SystemVerilog development.",
+  image: "images/AlteraFPGAboardImage.jpeg",
+  image2: "",
+  imageLabel: "Digital Logic / FPGA — Project Image",
+  image2Label: "FPGA Design — Secondary Image",
+  tags: [
+    "SystemVerilog",
+    "FPGA",
+    "Intel Quartus",
+    "Logisim",
+    "Boolean Logic",
+    "Finite State Machines"
+  ],
+  links: [],
+  details: {
+    "Overview": "Explored digital hardware design through combinational and sequential logic circuits, digital simulation, and FPGA development tools.",
+    "Objective": "Develop and analyze digital logic systems while gaining experience translating Boolean logic and sequential circuit designs into programmable hardware implementations.",
+    "Implementation": "Applied Boolean algebra, Karnaugh maps, state tables, and state diagrams to develop digital circuits. Used Logisim for logic simulation and Intel Quartus to explore FPGA-based hardware design using SystemVerilog.",
+    "Technical Details": [
+      "Combinational Logic: Boolean algebra, Karnaugh map simplification, encoders, and decoders.",
+      "Sequential Logic: Flip-flops, shift registers, synchronous and asynchronous counters.",
+      "Finite State Machines: State diagrams, transition tables, and synchronous sequential circuit design.",
+      "FPGA Development: Exploration of SystemVerilog and Intel Quartus for programmable logic implementation.",
+      "Digital Simulation: Circuit modelling, logic verification, and timing considerations using Logisim and computer-aided design tools."
+    ],
+    "Results": [
+      "Developed experience designing and simulating combinational and sequential digital circuits.",
+      "Strengthened understanding of finite state machines, logic optimization, and digital hardware architecture.",
+      "Gained familiarity with FPGA development workflows and hardware description languages."
+    ]
+  }
+},
+
     {
       slug: "reaction-time-tester",
       title: "Arduino Reaction Time Tester",
@@ -151,26 +171,24 @@ const DATA = {
     "Digital Logic",
     "AC Power Systems",
     "Circuit Simulation",
-    "Finite State Machines"
   ],
   details: {
-    "Overview": "Developed a foundation in analog and digital circuit design, electrical network analysis, and power systems.",
+    "Overview": "Developed a foundation in analog circuit design, electrical network analysis, and power systems.",
 
     "Objective": "Apply electrical engineering principles to analyze circuit behaviour, design digital logic systems, and evaluate transient and steady-state responses.",
 
-    "Implementation": "Applied nodal and mesh analysis, circuit equivalence techniques, Boolean algebra, and computer-aided simulation to analyze electrical networks and develop digital logic designs.",
+    "Implementation": "Applied nodal and mesh analysis, circuit equivalence techniques, Boolean algebra, and computer-aided simulation to analyze electrical networks.",
 
     "Technical Details": [
       "Circuit Analysis: Kirchhoff’s laws, Thevenin and Norton equivalents, and controlled sources.",
       "AC & Power Systems: Phasors, complex impedance, transformers, three-phase circuits, and real/reactive power.",
-      "Digital Logic: Combinational and sequential circuits, Karnaugh maps, counters, and finite state machines.",
       "Transient Analysis: Capacitor and inductor behaviour in first-order electrical networks.",
       "Simulation: Computer-aided circuit modelling and verification."
     ],
 
     "Results": [
       "Developed analytical problem-solving skills across analog and digital circuit systems.",
-      "Strengthened understanding of circuit design, power systems, and digital logic.",
+      "Strengthened understanding of circuit design, power systems.",
       "Gained experience evaluating circuit performance through simulation."
     ]
   }
