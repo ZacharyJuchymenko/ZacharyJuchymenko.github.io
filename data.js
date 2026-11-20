@@ -139,26 +139,51 @@ const DATA = {
         "My Contribution": "Designed and implemented the embedded project as a hands-on electronics project."
       }
     },
-    {
-      slug: "avr-microprocessor",
-      title: "AVR Microprocessor Project",
-      type: "Microprocessors",
-      event: "",
-      short: "Low-level AVR programming and microcontroller work involving registers, GPIO, timing, assembly, and C.",
-      image: "", image2: "",
-      imageLabel: "AVR Microprocessor — Project Image",
-      image2Label: "Assembly / Hardware Image",
-      tags: ["AVR", "Assembly", "C", "Microprocessors", "Arduino Nano"],
-      links: [],
-      details: {
-        "Overview": "Microprocessor coursework and hands-on work using the ATmega328P/Arduino Nano platform.",
-        "Objective": "Understand and implement low-level microcontroller functionality using both C and AVR assembly.",
-        "Implementation": "Worked with GPIO registers, bit manipulation, timing loops, program flow, and embedded C/assembly code.",
-        "Technical Details": ["ATmega328P Microcontroller", "16 MHz Arduino Nano clock", "Configured DDRB and PORTB GPIO registers"],
-        "Results": ["Compared C and assembly implementations and compiled program sizes", "Implemented GPIO control and timing routines"],
-        "My Contribution": "Implemented, tested, and debugged microprocessor programs while analyzing their low-level operation."
-      }
-    },
+    
+{
+  slug: "AVR microprocessors-embedded-systems",
+  title: "AVR Microprocessors & Embedded Systems",
+  type: "Relevant Coursework",
+  event: "ECED 3204 — Dalhousie University",
+  short: "Developed embedded programming and hardware interfacing skills using AVR microcontrollers, Assembly, C, and serial communication protocols.",
+  image: "",
+  image2: "",
+  imageLabel: "AVR Microcontroller Development Board",
+  image2Label: "Embedded Systems — Secondary Image",
+  tags: [
+    "AVR Microcontrollers",
+    "Embedded C",
+    "Assembly",
+    "MPLAB",
+    "Interrupts",
+    "USART",
+    "SPI",
+    "I2C"
+  ],
+  links: [],
+  details: {
+    "Overview": "Studied AVR microcontroller architecture, embedded programming, peripheral control, and hardware communication through lectures and laboratory exercises.",
+
+    "Objective": "Develop the ability to program embedded processors, interface with hardware peripherals, and implement timing, interrupt, and communication functions.",
+
+    "Implementation": "Applied Assembly and C programming to AVR microcontrollers using MPLAB and Visual Studio Code. Explored register-level control, digital I/O, interrupts, timers, and serial communication through embedded systems coursework and laboratory exercises.",
+
+    "Technical Details": [
+      "Microcontroller Architecture: AVR architecture, memory organization, CPU execution, and register-level operations.",
+      "Embedded Programming: Assembly and C programming, subroutines, software development, and debugging.",
+      "Hardware Interfacing: Digital input/output, peripheral configuration, and external device communication.",
+      "Timers & Interrupts: Clock configuration, timer operations, interrupt handling, and time-based control.",
+      "Communication Protocols: USART, SPI, and I2C interfaces for communication between embedded devices."
+    ],
+
+    "Results": [
+      "Developed practical experience programming AVR microcontrollers using Assembly and C.",
+      "Strengthened understanding of hardware peripherals, interrupt-driven operation, and timer-based control.",
+      "Gained experience with embedded development tools and serial communication interfaces."
+    ]
+  }
+},
+
     {
   slug: "Engineering Circuit Design & Analysis",
   title: "Engineering Circuit Design & Analysis",
