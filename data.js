@@ -143,7 +143,7 @@ const DATA = {
 {
   slug: "AVR microprocessors-embedded-systems",
   title: "AVR Microprocessors & Embedded Systems",
-  type: "Relevant Coursework",
+  type: "Microprocessors",
   event: "ECED 3204 — Dalhousie University",
   short: "Developed embedded programming and hardware interfacing skills using AVR microcontrollers, Assembly, C, and serial communication protocols.",
   image: "",
@@ -187,6 +187,7 @@ const DATA = {
     {
   slug: "Engineering Circuit Design & Analysis",
   title: "Engineering Circuit Design & Analysis",
+  type: "Electrical Circuits",
   short: "Developed expertise in analog and digital circuit analysis, logic design, power systems, and circuit simulation.",
   image: "images/powerlab.jpg", image2: "",
   imageLabel: "Circuit Laboratory — Project Image",
