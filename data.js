@@ -140,26 +140,42 @@ const DATA = {
       }
     },
     {
-      slug: "circuit-design-analysis",
-      title: "Engineering Circuit Design & Analysis",
-      type: "Electrical Circuits",
-      event: "",
-      short: "Hands-on circuit laboratory work involving Kirchhoff's laws, Thévenin/superposition, op-amps, dependent sources, and AC phasor analysis.",
-      image: "images/powerlab.jpg", image2: "",
-      imageLabel: "Circuit Laboratory — Project Image",
-      image2Label: "Circuit Measurement — Secondary Image",
-      tags: ["Circuit Analysis", "Oscilloscope", "LTSpice", "AC/Phasors", "Op-Amps"],
-      links: [],
-      details: {
-        "Overview": "A collection of electrical engineering laboratory projects focused on analyzing and experimentally validating circuit behavior.",
-        "Objective": "Apply circuit-analysis theory to physical circuits and compare calculated, simulated, and measured results.",
-        "Implementation": "Built circuits on breadboards, performed measurements, analyzed uncertainty, and documented experimental results.",
-        "Technical Details": ["Kirchhoff's Laws", "Thévenin and Superposition", "Op-amp circuits", "AC/phasor analysis"],
-        "Results": ["Measured resistor power and circuit quantities", "Compared theoretical and experimental values"],
-        "My Contribution": "Built circuits, performed measurements, analyzed discrepancies, and prepared technical laboratory documentation."
-      }
-    }
+  slug: "Engineering Circuit Design & Analysis",
+  title: "Engineering Circuit Design & Analysis",
+  short: "Developed expertise in analog and digital circuit analysis, logic design, power systems, and circuit simulation.",
+  image: "images/powerlab.jpg", image2: "",
+  imageLabel: "Circuit Laboratory — Project Image",
+  image2Label: "Circuit Measurement — Secondary Image",
+  tags: [
+    "Circuit Analysis",
+    "Digital Logic",
+    "AC Power Systems",
+    "Circuit Simulation",
+    "Finite State Machines"
   ],
+  details: {
+    "Overview": "Developed a foundation in analog and digital circuit design, electrical network analysis, and power systems.",
+
+    "Objective": "Apply electrical engineering principles to analyze circuit behaviour, design digital logic systems, and evaluate transient and steady-state responses.",
+
+    "Implementation": "Applied nodal and mesh analysis, circuit equivalence techniques, Boolean algebra, and computer-aided simulation to analyze electrical networks and develop digital logic designs.",
+
+    "Technical Details": [
+      "Circuit Analysis: Kirchhoff’s laws, Thevenin and Norton equivalents, and controlled sources.",
+      "AC & Power Systems: Phasors, complex impedance, transformers, three-phase circuits, and real/reactive power.",
+      "Digital Logic: Combinational and sequential circuits, Karnaugh maps, counters, and finite state machines.",
+      "Transient Analysis: Capacitor and inductor behaviour in first-order electrical networks.",
+      "Simulation: Computer-aided circuit modelling and verification."
+    ],
+
+    "Results": [
+      "Developed analytical problem-solving skills across analog and digital circuit systems.",
+      "Strengthened understanding of circuit design, power systems, and digital logic.",
+      "Gained experience evaluating circuit performance through simulation."
+    ]
+  }
+},
+    ],
 
   /* Teams: same format as projects. Shown in their own "Teams" section. */
   
